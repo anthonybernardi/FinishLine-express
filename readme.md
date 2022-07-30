@@ -12,11 +12,15 @@
 - express is so easy to write
 - express takes away a ton of boilerplate on the backend
 - the yarn monorepo is like what we do with utils but it works way better
+- frontend can stay the same mostly
+- can use nodemon which redeploys locally on save
 
 
 ## Cons
-- as of now, I can't get the frontend to work lol
+- as of now, I can't get the frontend to work lol probably because of different versions?
 - a real con is that deploying might be a mess
+- might be more expensive, not sure about this though
+- have to migrate all our issues and stuff to a new repo
 
 
 ##### Credit

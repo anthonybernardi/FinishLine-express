@@ -14,7 +14,6 @@ import Settings from '../../pages/SettingsPage/settings';
 import HelpPage from '../../pages/HelpPage/HelpPage';
 import Sidebar from '../../layouts/sidebar/sidebar';
 import TeamsPage from '../../pages/TeamsPage/TeamsPage';
-import React from 'react';
 
 const styles = {
   content: {

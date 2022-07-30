@@ -41,7 +41,7 @@ const DependenciesList: React.FC<DependenciesListProps> = ({ dependencies, sette
   const handleAdd = () => {
     try {
       setDependenciesState([...dependenciesState, validateWBS(unvalidatedDependency)]);
-    } catch (error) {
+    } catch (error: any) {
       alert(error.message);
     }
     setUnvalidatedDependency('');

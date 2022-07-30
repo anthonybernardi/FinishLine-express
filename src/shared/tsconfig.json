@@ -1,15 +1,3 @@
 {
-  "compilerOptions": {
-    /* Basic Options */
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["ESNext", "dom"],
-    "strict": true,
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    /* Advanced Options */
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
-  }
+  "extends": "../../tsconfig.build.json"
 }

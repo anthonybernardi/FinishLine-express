@@ -4,8 +4,8 @@
  */
 
 import { useState } from 'react';
-import { useHistory } from 'react-router';
-import { Role } from '@prisma/client';
+import { useNavigate } from 'react-router';
+import { Role } from 'shared';
 import { exampleAllUsers } from '../../test-support/test-data/users.stub';
 import { useTheme } from '../../services/theme.hooks';
 import { useAuth } from '../../services/auth.hooks';
@@ -22,7 +22,7 @@ interface LoginProps {
  */
 const Login: React.FC<LoginProps> = ({ postLoginRedirect }) => {
   const [devUserRole, setDevUserRole] = useState<string>(Role.APP_ADMIN);
-  const history = useHistory();
+  const history = useNavigate();
   const theme = useTheme();
   const auth = useAuth();
 
@@ -30,9 +30,9 @@ const Login: React.FC<LoginProps> = ({ postLoginRedirect }) => {
 
   const redirectAfterLogin = () => {
     if (postLoginRedirect.url === routes.LOGIN) {
-      history.push(routes.HOME);
+      history(routes.HOME);
     } else {
-      history.push(`${postLoginRedirect.url}${postLoginRedirect.search}`);
+      history(`${postLoginRedirect.url}${postLoginRedirect.search}`);
     }
   };
 

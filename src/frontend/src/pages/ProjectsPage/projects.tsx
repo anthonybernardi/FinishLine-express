@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { routes } from '../../routes';
 import ProjectsView from './projects-view';
 import WBSDetails from '../WbsDetailsSwitchPage/wbs-details';
@@ -12,12 +12,12 @@ import CreateWPForm from '../CreateWorkPackagePage/create-wp-form';
 
 const Projects: React.FC = () => {
   return (
-    <Switch>
-      <Route path={routes.WORK_PACKAGE_NEW} component={CreateWPForm} />
-      <Route path={routes.PROJECTS_NEW} component={CreateProjectForm} />
-      <Route path={routes.PROJECTS_BY_WBS} component={WBSDetails} />
-      <Route path={routes.PROJECTS} component={ProjectsView} />
-    </Switch>
+    <Routes>
+      <Route path={routes.WORK_PACKAGE_NEW} element={CreateWPForm} />
+      <Route path={routes.PROJECTS_NEW} element={CreateProjectForm} />
+      <Route path={routes.PROJECTS_BY_WBS} element={WBSDetails} />
+      <Route path={routes.PROJECTS} element={ProjectsView} />
+    </Routes>
   );
 };
 

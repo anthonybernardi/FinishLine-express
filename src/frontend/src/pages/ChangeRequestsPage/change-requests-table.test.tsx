@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { UseQueryResult } from 'react-query';
 import { ChangeRequest, ChangeRequestType, ChangeRequestReason } from 'shared';

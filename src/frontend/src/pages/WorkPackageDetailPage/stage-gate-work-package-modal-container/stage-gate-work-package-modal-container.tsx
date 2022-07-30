@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ChangeRequestType, WbsNumber } from 'shared';
 import { useAuth } from '../../../services/auth.hooks';
 import { useCreateStageGateChangeRequest } from '../../../services/change-requests.hooks';
@@ -29,7 +29,7 @@ const StageGateWorkPackageModalContainer: React.FC<StageGateWorkPackageModalCont
   handleClose
 }) => {
   const auth = useAuth();
-  const history = useHistory();
+  const history = useNavigate();
   const { isLoading, isError, error, mutateAsync } = useCreateStageGateChangeRequest();
 
   const handleConfirm = async ({ leftoverBudget, confirmDone }: FormInput) => {
@@ -43,7 +43,7 @@ const StageGateWorkPackageModalContainer: React.FC<StageGateWorkPackageModalCont
       leftoverBudget,
       confirmDone
     });
-    history.push(routes.CHANGE_REQUESTS);
+    history(routes.CHANGE_REQUESTS);
   };
 
   if (isLoading) return <LoadingIndicator />;

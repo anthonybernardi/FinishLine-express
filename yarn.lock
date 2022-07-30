@@ -7946,12 +7946,15 @@ __metadata:
     "@types/react-router-dom": ^5.3.3
     axios: ^0.27.2
     customize-cra: ^0.9.1
+    google-auth-library: ^8.1.1
     msw: ^0.44.2
     react: ^18.2.0
     react-app-rewired: ^2.1.6
     react-bootstrap: ^1.4.3
     react-bootstrap-table-next: ^4.0.3
     react-dom: ^16.13.1
+    react-google-charts: ^4.0.0
+    react-google-login: ^5.2.2
     react-hook-form: ^7.34.0
     react-query: 3.17.0
     react-router-dom: ^6.3.0
@@ -13592,7 +13595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -13970,6 +13973,29 @@ __metadata:
   version: 6.0.11
   resolution: "react-error-overlay@npm:6.0.11"
   checksum: ce7b44c38fadba9cedd7c095cf39192e632daeccf1d0747292ed524f17dcb056d16bc197ddee5723f9dd888f0b9b19c3b486c430319e30504289b9296f2d2c42
+  languageName: node
+  linkType: hard
+
+"react-google-charts@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "react-google-charts@npm:4.0.0"
+  peerDependencies:
+    react: ">=16.3.0"
+    react-dom: ">=16.3.0"
+  checksum: 7bd258523b03badef5c269cae1c854b5a971c589ceea4b9a626f8c59f421f5c569e95096cc4024d492a04b248e3f910dc7c34c6f52c2424dbe32980f651014a8
+  languageName: node
+  linkType: hard
+
+"react-google-login@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "react-google-login@npm:5.2.2"
+  dependencies:
+    "@types/react": "*"
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^16 || ^17
+    react-dom: ^16 || ^17
+  checksum: 29199c7035c3c1070a82241dc4063628d693f35a1736d292e3db736e52da825e8a53f9287b0b12b08a50d676973ce1349a4d8243cd849ca25fed6a4284378880
   languageName: node
   linkType: hard
 

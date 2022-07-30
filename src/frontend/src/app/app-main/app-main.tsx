@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppContext from '../app-context/app-context';
 import AppPublic from '../app-public/app-public';

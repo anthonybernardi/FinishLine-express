@@ -145,7 +145,7 @@ const CreateChangeRequestsView: React.FC<CreateChangeRequestViewProps> = ({ wbsN
                     <Form.Control
                       as="select"
                       {...register(`why.${index}.type` as const)}
-                      isInvalid={formState.errors.why?.[index]?.type?.message !== undefined}
+                      isInvalid={formState.errors.why?.[index]?.type !== undefined}
                       custom
                     >
                       {Object.values(ChangeRequestReason).map((t) => (
@@ -163,7 +163,7 @@ const CreateChangeRequestsView: React.FC<CreateChangeRequestViewProps> = ({ wbsN
                       X
                     </Button>
                     <Form.Control.Feedback type="invalid" className="d-block">
-                      {formState.errors.why?.[index]?.type?.message}
+                      {formState.errors.why?.[index]?.type}
                       {formState.errors.why?.[index]?.explain?.message}
                     </Form.Control.Feedback>
                   </InputGroup>

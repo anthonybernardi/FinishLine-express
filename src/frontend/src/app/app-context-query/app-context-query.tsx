@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const AppContextQuery: React.FC = (props) => {

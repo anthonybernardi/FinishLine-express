@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../services/auth.hooks';
 import { useReviewChangeRequest } from '../../services/change-requests.hooks';

@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routes } from '../../routes';
 import ChangeRequestDetails from '../ChangeRequestDetailPage/change-request-details';

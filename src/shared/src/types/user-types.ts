@@ -15,7 +15,13 @@ export interface User {
 
 export type UserPreview = Pick<User, 'userId' | 'firstName' | 'lastName' | 'email' | 'role'>;
 
-export type Role = 'APP_ADMIN' | 'ADMIN' | 'LEADERSHIP' | 'MEMBER' | 'GUEST';
+export enum Role {
+  APP_ADMIN = 'APP_ADMIN',
+  ADMIN = 'ADMIN',
+  LEADERSHIP = 'LEADERSHIP',
+  MEMBER = 'MEMBER',
+  GUEST = 'GUEST'
+}
 
 export type ThemeName = 'DARK' | 'LIGHT';
 

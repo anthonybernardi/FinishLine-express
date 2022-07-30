@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import AppContextAuth from '../app-context-auth/app-context-auth';
 import AppContextQuery from '../app-context-query/app-context-query';
 import AppContextTheme from '../app-context-theme/app-context-theme';

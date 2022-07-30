@@ -20,9 +20,7 @@ const NavPageLinks: React.FC<NavPageLinkProps> = ({ linkItems }: NavPageLinkProp
         <NavLink
           key={item.name}
           to={item.route}
-          className={styles.row}
-          activeClassName={styles.activeLink}
-          exact={item.route === routes.HOME}
+          className={(navData) => (navData.isActive ? styles.row : styles.activeLink)}
         >
           {item.icon ? (
             <FontAwesomeIcon

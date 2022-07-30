@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { useState, useRef } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 

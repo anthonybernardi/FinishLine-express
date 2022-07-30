@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ChangeRequestExplanation, StandardChangeRequest } from 'shared';
 import { weeksPipe, dollarsPipe } from '../../../../../pipes';

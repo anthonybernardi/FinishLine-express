@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { StageGateChangeRequest } from 'shared';
 import { useTheme } from '../../../../services/theme.hooks';

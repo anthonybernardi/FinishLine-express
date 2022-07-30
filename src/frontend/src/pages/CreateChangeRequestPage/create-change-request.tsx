@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ChangeRequestExplanation, ChangeRequestType, validateWBS } from 'shared';
 import { useAuth } from '../../services/auth.hooks';
 import { useCreateStandardChangeRequest } from '../../services/change-requests.hooks';
@@ -28,7 +28,7 @@ export interface FormInput {
 const CreateChangeRequest: React.FC<CreateChangeRequestProps> = () => {
   const auth = useAuth();
   const query = useQuery();
-  const history = useHistory();
+  const history = useNavigate();
   const { isLoading, isError, error, mutateAsync } = useCreateStandardChangeRequest();
 
   const handleConfirm = async (data: FormInput) => {
@@ -40,7 +40,7 @@ const CreateChangeRequest: React.FC<CreateChangeRequestProps> = () => {
       wbsNum: validateWBS(data.wbsNum),
       submitterId: auth.user?.userId
     });
-    history.push(routes.CHANGE_REQUESTS);
+    history(routes.CHANGE_REQUESTS);
   };
 
   if (isLoading) return <LoadingIndicator />;

@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { routerWrapperBuilder } from '../../test-support/test-utils';

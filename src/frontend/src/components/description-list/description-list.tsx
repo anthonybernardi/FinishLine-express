@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { DescriptionBullet } from 'shared';
 import BulletList from '../bullet-list/bullet-list';
 

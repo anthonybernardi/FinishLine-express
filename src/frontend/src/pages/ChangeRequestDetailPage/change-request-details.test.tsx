@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { UseQueryResult } from 'react-query';
 import { ChangeRequest } from 'shared';
 import { Auth } from '../../types';

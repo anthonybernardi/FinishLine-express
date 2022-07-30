@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import BootstrapTable, {
   ColumnDescription,
   RowEventHandlerProps,
@@ -59,7 +59,7 @@ export function wbsNumSort(a: string, b: string, order: SortOrder) {
  * Interactive table for displaying all projects table data.
  */
 const ProjectsTable: React.FC<DisplayProjectProps> = ({ allProjects }: DisplayProjectProps) => {
-  const history = useHistory();
+  const history = useNavigate();
 
   // Configures display options for all data columns
   const columns: ColumnDescription[] = [
@@ -111,7 +111,7 @@ const ProjectsTable: React.FC<DisplayProjectProps> = ({ allProjects }: DisplayPr
   // define what happens during various row events
   const rowEvents: RowEventHandlerProps = {
     onClick: (e, row, rowIndex) => {
-      history.push(`/projects/${row.wbsNum}`);
+      history(`/projects/${row.wbsNum}`);
     }
   };
 

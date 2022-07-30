@@ -4,7 +4,7 @@
  */
 
 import { Button, ButtonGroup } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { WbsNumber } from 'shared';
 import { wbsPipe } from '../../../../../pipes';
 import { routes } from '../../../../../routes';
@@ -15,10 +15,10 @@ interface DependencyProps {
 }
 
 const Dependency: React.FC<DependencyProps> = ({ wbsNumber, handleDelete }) => {
-  const history = useHistory();
+  const history = useNavigate();
 
   function handleLinkClick() {
-    history.push(`${routes.PROJECTS}/${wbsPipe(wbsNumber)}`);
+    history(`${routes.PROJECTS}/${wbsPipe(wbsNumber)}`);
   }
 
   return (

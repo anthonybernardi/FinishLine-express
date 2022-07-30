@@ -3,7 +3,6 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import React from 'react';
 import { ChangeRequestType, ChangeRequestReason } from 'shared';
 import { act, fireEvent, render, screen } from '../../../test-support/test-utils';
 import ChangeRequestsFilter from './change-requests-filter';

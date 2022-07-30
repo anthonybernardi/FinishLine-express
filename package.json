@@ -20,6 +20,7 @@
     "i": "yarn install && yarn prisma:generate"
   },
   "devDependencies": {
+    "@types/react-query": "^1.2.9",
     "concurrently": "^5.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

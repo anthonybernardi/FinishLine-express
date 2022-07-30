@@ -19,6 +19,10 @@
     "prisma:generate": "cd src/backend; npx prisma generate",
     "i": "yarn install && yarn prisma:generate"
   },
+  "resolutions": {
+    "@types/react": "17.0.1",
+    "@types/react-dom": "17.0.1"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@types/jest": "^28.1.6",

@@ -5,7 +5,7 @@
 
 import { NavDropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useGoogleLogout } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../../services/auth.hooks';
@@ -15,14 +15,6 @@ import styles from './nav-user-menu.module.css';
 const NavUserMenu: React.FC = () => {
   const history = useNavigate();
   const auth = useAuth();
-
-  const { signOut, loaded } = useGoogleLogout({
-    clientId: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID!,
-    onLogoutSuccess: () => {
-      auth!.signout();
-      history(routes.HOME);
-    }
-  });
 
   return (
     <NavDropdown
@@ -39,9 +31,23 @@ const NavUserMenu: React.FC = () => {
         </Link>
       </NavDropdown.Item>
       <NavDropdown.Item className={styles.UserMenuItem}>
-        <button className={'nav-link ' + styles.dropdownItems} onClick={signOut} disabled={!loaded}>
-          Logout
-        </button>
+        <GoogleLogout
+          clientId={process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID!}
+          //jsSrc={'accounts.google.com/gsi/client'}
+          onLogoutSuccess={() => {
+            auth!.signout();
+            history(routes.HOME);
+          }}
+          render={(renderProps) => (
+            <button
+              className={'nav-link ' + styles.dropdownItems}
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              Logout
+            </button>
+          )}
+        ></GoogleLogout>
       </NavDropdown.Item>
     </NavDropdown>
   );

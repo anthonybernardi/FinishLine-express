@@ -91,6 +91,7 @@ export const updateUserSettings = async (req: any, res: any) => {
 export const logUserIn = async (req: any, res: any) => {
   if (!req.body || !req.body.id_token) return res.status(400).json({ message: 'Invalid Body' });
 
+  // eslint-disable-next-line prefer-destructuring
   const idToken = req.body.id_token;
 
   const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID);

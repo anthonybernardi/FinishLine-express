@@ -4,7 +4,7 @@
  */
 
 import { useParams } from 'react-router-dom';
-import { validateWBS, isProject } from 'utils';
+import { validateWBS, isProject } from 'shared';
 import WorkPackagePage from '../WorkPackageDetailPage/work-package-page';
 import ErrorPage from '../../pages/ErrorPage/error-page';
 import ProjectPage from '../ProjectDetailPage/project-page';
@@ -17,7 +17,7 @@ const WBSDetails: React.FC = () => {
   let wbsNumber;
   try {
     wbsNumber = validateWBS(wbsNum); // ensure the provided wbsNum is correctly formatted
-  } catch (error: any) {
+  } catch (error) {
     return <ErrorPage message={error.message} />;
   }
 

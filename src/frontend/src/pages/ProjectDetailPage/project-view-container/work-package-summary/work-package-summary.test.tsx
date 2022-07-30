@@ -3,14 +3,14 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { WorkPackage } from 'utils';
-import { render, screen, routerWrapperBuilder } from '../../../../../test-support/test-utils';
-import { wbsPipe, listPipe, endDatePipe, datePipe } from '../../../../../shared/pipes';
+import { WorkPackage } from 'shared';
+import { render, screen, routerWrapperBuilder } from '../../../../test-support/test-utils';
+import { wbsPipe, listPipe, endDatePipe, datePipe } from '../../../../pipes';
 import {
   exampleWorkPackage1,
   exampleWorkPackage2,
   exampleWorkPackage3
-} from '../../../../../test-support/test-data/work-packages.stub';
+} from '../../../../test-support/test-data/work-packages.stub';
 import WorkPackageSummary from './work-package-summary';
 
 // Sets up the component under test with the desired values and renders it

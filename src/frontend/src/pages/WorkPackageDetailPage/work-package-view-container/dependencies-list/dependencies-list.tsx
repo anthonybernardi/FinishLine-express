@@ -5,7 +5,7 @@
 
 import { Button, InputGroup, Form } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { validateWBS, WbsNumber } from 'utils';
+import { validateWBS, WbsNumber } from 'shared';
 import HorizontalList from '../../../../components/horizontal-list/horizontal-list';
 import Dependency from './dependency/dependency';
 
@@ -41,7 +41,7 @@ const DependenciesList: React.FC<DependenciesListProps> = ({ dependencies, sette
   const handleAdd = () => {
     try {
       setDependenciesState([...dependenciesState, validateWBS(unvalidatedDependency)]);
-    } catch (error: any) {
+    } catch (error) {
       alert(error.message);
     }
     setUnvalidatedDependency('');

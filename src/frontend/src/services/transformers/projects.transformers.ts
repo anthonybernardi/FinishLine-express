@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { DescriptionBullet, Project } from 'utils';
+import { DescriptionBullet, Project } from 'shared';
 import { implementedChangeTransformer } from './change-requests.transformers';
 import { workPackageTransformer } from './work-packages.transformers';
 

@@ -4,15 +4,15 @@
  */
 
 import { UseQueryResult } from 'react-query';
-import { WorkPackage } from 'utils';
-import { useAllWorkPackages } from '../../../../services/work-packages.hooks';
-import { datePipe, fullNamePipe } from '../../../../shared/pipes';
-import { mockUseQueryResult } from '../../../../test-support/test-data/test-utils.stub';
-import { exampleAllWorkPackages } from '../../../../test-support/test-data/work-packages.stub';
-import { render, routerWrapperBuilder, screen } from '../../../../test-support/test-utils';
+import { WorkPackage } from 'shared';
+import { useAllWorkPackages } from '../../../services/work-packages.hooks';
+import { datePipe, fullNamePipe } from '../../../pipes';
+import { mockUseQueryResult } from '../../../test-support/test-data/test-utils.stub';
+import { exampleAllWorkPackages } from '../../../test-support/test-data/work-packages.stub';
+import { render, routerWrapperBuilder, screen } from '../../../test-support/test-utils';
 import UpcomingDeadlines from './upcoming-deadlines';
 
-jest.mock('../../../../services/work-packages.hooks');
+jest.mock('../../../services/work-packages.hooks');
 
 const mockedUseAllWPs = useAllWorkPackages as jest.Mock<UseQueryResult<WorkPackage[]>>;
 

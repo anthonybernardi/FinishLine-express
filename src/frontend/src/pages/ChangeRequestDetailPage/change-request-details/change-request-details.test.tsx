@@ -10,7 +10,7 @@ import {
   render,
   screen,
   act
-} from '../../../test-support/test-utils';
+} from '../../test-support/test-utils';
 import {
   ActivationChangeRequest,
   ChangeRequest,
@@ -23,7 +23,7 @@ import {
   exampleAllChangeRequests,
   exampleStageGateChangeRequest,
   exampleStandardChangeRequest
-} from '../../../test-support/test-data/change-requests.stub';
+} from '../../test-support/test-data/change-requests.stub';
 import ChangeRequestDetails from './change-request-details';
 
 /**

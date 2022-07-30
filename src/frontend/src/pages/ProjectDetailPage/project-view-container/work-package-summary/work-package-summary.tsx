@@ -6,10 +6,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Collapse, Col, Container, Row } from 'react-bootstrap';
-import { WorkPackage } from 'utils';
-import { weeksPipe, wbsPipe, endDatePipe, listPipe, datePipe } from '../../../../../shared/pipes';
-import { useTheme } from '../../../../../services/theme.hooks';
-import { routes } from '../../../../../shared/routes';
+import { WorkPackage } from 'shared';
+import { weeksPipe, wbsPipe, endDatePipe, listPipe, datePipe } from '../../../../pipes';
+import { useTheme } from '../../../../services/theme.hooks';
+import { routes } from '../../../../routes';
 import WbsStatus from '../../../../components/wbs-status/wbs-status';
 import styles from './work-package-summary.module.scss';
 

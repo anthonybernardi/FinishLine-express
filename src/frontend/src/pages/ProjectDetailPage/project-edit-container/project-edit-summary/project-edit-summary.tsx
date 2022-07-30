@@ -4,7 +4,7 @@
  */
 
 import { Form } from 'react-bootstrap';
-import { Project } from 'utils';
+import { Project } from 'shared';
 
 import PageBlock from '../../../../layouts/page-block/page-block';
 

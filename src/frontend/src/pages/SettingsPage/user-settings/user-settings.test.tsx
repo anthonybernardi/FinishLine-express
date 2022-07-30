@@ -4,18 +4,18 @@
  */
 
 import { UseMutationResult, UseQueryResult } from 'react-query';
-import { UserSettings } from 'utils';
+import { UserSettings } from 'shared';
 import {
   useLogUserIn,
   useSingleUserSettings,
   useUpdateUserSettings
-} from '../../../../services/users.hooks';
+} from '../../../services/users.hooks';
 import {
   mockUseMutationResult,
   mockUseQueryResult
-} from '../../../../test-support/test-data/test-utils.stub';
-import { exampleUserSettingsLight } from '../../../../test-support/test-data/user-settings.stub';
-import { fireEvent, render, screen } from '../../../../test-support/test-utils';
+} from '../../../test-support/test-data/test-utils.stub';
+import { exampleUserSettingsLight } from '../../../test-support/test-data/user-settings.stub';
+import { fireEvent, render, screen } from '../../../test-support/test-utils';
 import UserSettingsComponent from './user-settings';
 
 jest.mock('./user-settings-view/user-settings-view', () => {
@@ -36,7 +36,7 @@ jest.mock('./user-settings-edit/user-settings-edit', () => {
   };
 });
 
-jest.mock('../../../../services/users.hooks');
+jest.mock('../../../services/users.hooks');
 
 const mockedUseSingleUserSettings = useSingleUserSettings as jest.Mock<
   UseQueryResult<UserSettings>

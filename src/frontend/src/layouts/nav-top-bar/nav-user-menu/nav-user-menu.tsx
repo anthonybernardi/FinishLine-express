@@ -8,8 +8,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { useAuth } from '../../../../services/auth.hooks';
-import { routes } from '../../../../shared/routes';
+import { useAuth } from '../../../services/auth.hooks';
+import { routes } from '../../../routes';
 import styles from './nav-user-menu.module.css';
 
 const NavUserMenu: React.FC = () => {

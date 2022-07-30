@@ -6,9 +6,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Dropdown, DropdownButton } from 'react-bootstrap';
-import { WbsElementStatus, WorkPackage } from 'utils';
-import { wbsPipe } from '../../../../shared/pipes';
-import { routes } from '../../../../shared/routes';
+import { WbsElementStatus, WorkPackage } from 'shared';
+import { wbsPipe } from '../../../pipes';
+import { routes } from '../../../routes';
 import ActivateWorkPackageModalContainer from '../activate-work-package-modal-container/activate-work-package-modal-container';
 import DescriptionList from '../../../components/description-list/description-list';
 import HorizontalList from '../../../components/horizontal-list/horizontal-list';

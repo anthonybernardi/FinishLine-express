@@ -10,7 +10,7 @@ import {
   faList,
   faListOl
 } from '@fortawesome/free-solid-svg-icons';
-import { Project } from 'utils';
+import { Project } from 'shared';
 import {
   datePipe,
   dollarsPipe,
@@ -18,7 +18,7 @@ import {
   endDatePipe,
   fullNamePipe,
   weeksPipe
-} from '../../../../../shared/pipes';
+} from '../../../../pipes';
 import ExternalLink from '../../../../components/external-link/external-link';
 import WbsStatus from '../../../../components/wbs-status/wbs-status';
 import PageBlock from '../../../../layouts/page-block/page-block';

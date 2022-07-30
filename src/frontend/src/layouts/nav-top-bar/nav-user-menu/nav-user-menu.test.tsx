@@ -9,7 +9,7 @@ import {
   waitFor,
   fireEvent,
   routerWrapperBuilder
-} from '../../../../test-support/test-utils';
+} from '../../../test-support/test-utils';
 import NavUserMenu from './nav-user-menu';
 
 /**

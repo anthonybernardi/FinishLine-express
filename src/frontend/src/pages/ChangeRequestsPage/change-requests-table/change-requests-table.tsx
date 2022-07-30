@@ -1,15 +1,11 @@
-/*
- * This file is part of NER's PM Dashboard and licensed under GNU AGPLv3.
- * See the LICENSE file in the repository root folder for details.
- */
-
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import BootstrapTable, {
   ColumnDescription,
   RowEventHandlerProps,
   SortOrder
 } from 'react-bootstrap-table-next';
-import { routes } from '../../../../shared/routes';
+import { routes } from '../../../routes';
 
 export interface DisplayChangeRequest {
   id: number;
@@ -32,7 +28,7 @@ interface ChangeRequestsTableProps {
 const ChangeRequestsTable: React.FC<ChangeRequestsTableProps> = ({
   changeRequests
 }: ChangeRequestsTableProps) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // Configures display options for all data columns
   const columns: ColumnDescription[] = [
@@ -104,7 +100,7 @@ const ChangeRequestsTable: React.FC<ChangeRequestsTableProps> = ({
   // define what happens during various row events
   const rowEvents: RowEventHandlerProps = {
     onClick: (e, row, rowIndex) => {
-      history.push(`${routes.CHANGE_REQUESTS}/${row.id}`);
+      navigate(`${routes.CHANGE_REQUESTS}/${row.id}`);
     }
   };
 

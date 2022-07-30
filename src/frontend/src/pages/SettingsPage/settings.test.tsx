@@ -3,8 +3,8 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { render, screen, routerWrapperBuilder } from '../../../test-support/test-utils';
-import { routes } from '../../../shared/routes';
+import { render, screen, routerWrapperBuilder } from '../../test-support/test-utils';
+import { routes } from '../../routes';
 import Settings from './settings';
 
 jest.mock('./user-settings/user-settings', () => {

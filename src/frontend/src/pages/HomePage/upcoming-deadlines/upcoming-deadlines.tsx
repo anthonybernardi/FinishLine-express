@@ -6,11 +6,11 @@
 import { useState } from 'react';
 import { Card, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { WbsElementStatus } from 'utils';
-import { useTheme } from '../../../../services/theme.hooks';
-import { useAllWorkPackages } from '../../../../services/work-packages.hooks';
-import { datePipe, wbsPipe, fullNamePipe, percentPipe } from '../../../../shared/pipes';
-import { routes } from '../../../../shared/routes';
+import { WbsElementStatus } from 'shared';
+import { useTheme } from '../../../services/theme.hooks';
+import { useAllWorkPackages } from '../../../services/work-packages.hooks';
+import { datePipe, wbsPipe, fullNamePipe, percentPipe } from '../../../pipes';
+import { routes } from '../../../routes';
 import LoadingIndicator from '../../../components/loading-indicator/loading-indicator';
 import PageBlock from '../../../layouts/page-block/page-block';
 import ErrorPage from '../../ErrorPage/error-page';

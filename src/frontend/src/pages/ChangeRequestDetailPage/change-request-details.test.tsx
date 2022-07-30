@@ -29,7 +29,7 @@ import { useSingleChangeRequest } from '../../services/change-requests.hooks';
 import { useAuth } from '../../services/auth.hooks';
 import ChangeRequestDetails from './change-request-details';
 
-jest.mock('../../../services/change-requests.hooks');
+jest.mock('../../services/change-requests.hooks');
 
 const mockedUseSingleChangeRequest = useSingleChangeRequest as jest.Mock<
   UseQueryResult<ChangeRequest>
@@ -46,7 +46,7 @@ const mockSingleCRHook = (
   );
 };
 
-jest.mock('../../../services/auth.hooks');
+jest.mock('../../services/auth.hooks');
 
 const mockedUseAuth = useAuth as jest.Mock<Auth>;
 

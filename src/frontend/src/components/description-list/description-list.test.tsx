@@ -11,7 +11,7 @@ import { Theme } from '../../types';
 import { exampleWorkPackage2 } from '../../test-support/test-data/work-packages.stub';
 import DescriptionList from './description-list';
 
-jest.mock('../../../services/theme.hooks');
+jest.mock('../../services/theme.hooks');
 const mockTheme = useTheme as jest.Mock<Theme>;
 
 const mockHook = () => {

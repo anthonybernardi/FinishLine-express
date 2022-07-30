@@ -5,12 +5,12 @@
 
 import { createContext, useState, SyntheticEvent } from 'react';
 import { Container, Form } from 'react-bootstrap';
-import { WbsNumber, WorkPackage, WbsElementStatus } from 'utils';
-import { useAuth } from '../../../../services/auth.hooks';
-import { useAllUsers } from '../../../../services/users.hooks';
-import { useEditWorkPackage } from '../../../../services/work-packages.hooks';
-import { routes } from '../../../../shared/routes';
-import { wbsPipe } from '../../../../shared/pipes';
+import { WbsNumber, WorkPackage, WbsElementStatus } from 'shared';
+import { useAuth } from '../../../services/auth.hooks';
+import { useAllUsers } from '../../../services/users.hooks';
+import { useEditWorkPackage } from '../../../services/work-packages.hooks';
+import { routes } from '../../../routes';
+import { wbsPipe } from '../../../pipes';
 import EditableTextInputList from '../../../components/editable-text-input-list/editable-text-input-list';
 import ErrorPage from '../../../pages/ErrorPage/error-page';
 import LoadingIndicator from '../../../components/loading-indicator/loading-indicator';

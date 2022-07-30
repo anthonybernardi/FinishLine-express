@@ -3,11 +3,12 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ChangeRequest } from 'utils';
-import { exampleAllChangeRequests } from '../../../../test-support/test-data/change-requests.stub';
-import { booleanPipe, fullNamePipe, wbsPipe } from '../../../../shared/pipes';
-import { routerWrapperBuilder } from '../../../../test-support/test-utils';
+import { ChangeRequest } from 'shared';
+import { exampleAllChangeRequests } from '../../../test-support/test-data/change-requests.stub';
+import { booleanPipe, fullNamePipe, wbsPipe } from '../../../pipes';
+import { routerWrapperBuilder } from '../../../test-support/test-utils';
 import ChangeRequestsTable, { DisplayChangeRequest } from './change-requests-table';
 
 // Sets up the component under test with the desired values and renders it.
@@ -20,6 +21,7 @@ const renderComponent: (changeRequests?: DisplayChangeRequest[]) => void = (crs)
         submitterName: fullNamePipe(cr.submitter),
         wbsNum: wbsPipe(cr.wbsNum),
         type: cr.type,
+        dateSubmitted: Date(),
         dateReviewed: cr.dateReviewed ? cr.dateReviewed.toLocaleDateString() : '',
         accepted: cr.accepted ? booleanPipe(cr.accepted) : '',
         dateImplemented: cr.dateImplemented ? cr.dateImplemented.toLocaleDateString() : ''

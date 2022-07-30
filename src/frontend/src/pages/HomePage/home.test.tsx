@@ -3,13 +3,13 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { render, screen, routerWrapperBuilder } from '../../../test-support/test-utils';
-import { routes } from '../../../shared/routes';
+import { render, screen, routerWrapperBuilder } from '../../test-support/test-utils';
+import { routes } from '../../routes';
 import Home from './home';
-import { useAuth } from '../../../services/auth.hooks';
-import { Auth } from '../../../shared/types';
-import { exampleAdminUser } from '../../../test-support/test-data/users.stub';
-import { mockAuth } from '../../../test-support/test-data/test-utils.stub';
+import { useAuth } from '../../services/auth.hooks';
+import { Auth } from '../../types';
+import { exampleAdminUser } from '../../test-support/test-data/users.stub';
+import { mockAuth } from '../../test-support/test-data/test-utils.stub';
 
 jest.mock('./useful-links/useful-links', () => {
   return {
@@ -38,7 +38,7 @@ jest.mock('./work-packages-by-timeline-status/work-packages-by-timeline-status',
   };
 });
 
-jest.mock('../../../services/auth.hooks');
+jest.mock('../../services/auth.hooks');
 
 const mockedUseAuth = useAuth as jest.Mock<Auth>;
 

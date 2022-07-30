@@ -4,8 +4,8 @@
  */
 
 import Chart from 'react-google-charts';
-import { WorkPackage } from 'utils';
-import { ganttAllColumns } from '../../../../../shared/chart-data';
+import { WorkPackage } from 'shared';
+import { ganttAllColumns } from '../../../../chart-data';
 import PageBlock from '../../../../layouts/page-block/page-block';
 
 interface ProjectGanttProps {

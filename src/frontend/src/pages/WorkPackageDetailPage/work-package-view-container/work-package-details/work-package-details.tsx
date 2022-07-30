@@ -4,8 +4,8 @@
  */
 
 import { Col, Container, Row } from 'react-bootstrap';
-import { WorkPackage } from 'utils';
-import { percentPipe, fullNamePipe, datePipe, weeksPipe } from '../../../../../shared/pipes';
+import { WorkPackage } from 'shared';
+import { percentPipe, fullNamePipe, datePipe, weeksPipe } from '../../../../pipes';
 import WbsStatus from '../../../../components/wbs-status/wbs-status';
 import PageBlock from '../../../../layouts/page-block/page-block';
 

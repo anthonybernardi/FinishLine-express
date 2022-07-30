@@ -3,8 +3,8 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { ReactNode } from 'react';
-import { LinkItem } from '../../../shared/types';
+import React, { ReactNode } from 'react';
+import { LinkItem } from '../../types';
 import PageBreadcrumbs from './page-breadcrumbs/page-breadcrumbs';
 
 interface PageTitleProps {

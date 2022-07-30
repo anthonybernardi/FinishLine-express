@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { AuthenticatedUser, User } from 'utils';
+import { AuthenticatedUser, User } from 'shared';
 
 /**
  * Transforms a user to ensure deep field transformation of date objects.

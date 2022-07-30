@@ -5,8 +5,8 @@
 
 import { useState } from 'react';
 import { Button, Dropdown, Form } from 'react-bootstrap';
-import { User, WbsElementStatus } from 'utils';
-import { fullNamePipe } from '../../../../shared/pipes';
+import { User, WbsElementStatus } from 'shared';
+import { fullNamePipe } from '../../../pipes';
 import PageBlock from '../../../layouts/page-block/page-block';
 import styles from './projects-table-filter.module.scss';
 

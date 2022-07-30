@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { useState } from 'react';
 import { Button, Dropdown, Form } from 'react-bootstrap';
-import { ChangeRequestType, ChangeRequestReason } from 'utils';
+import { ChangeRequestType, ChangeRequestReason } from 'shared';
 import PageBlock from '../../../layouts/page-block/page-block';
 import styles from './change-requests-filter.module.scss';
 

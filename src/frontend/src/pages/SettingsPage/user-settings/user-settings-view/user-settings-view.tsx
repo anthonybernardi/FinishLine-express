@@ -4,7 +4,7 @@
  */
 
 import { Col, Row } from 'react-bootstrap';
-import { UserSettings } from 'utils';
+import { UserSettings } from 'shared';
 
 interface UserSettingsViewProps {
   settings: UserSettings;

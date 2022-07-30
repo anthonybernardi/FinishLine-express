@@ -4,20 +4,20 @@
  */
 
 import { UseMutationResult, UseQueryResult } from 'react-query';
-import { User } from 'utils';
-import { render, screen } from '../../../../test-support/test-utils';
-import { wbsPipe } from '../../../../shared/pipes';
-import { useAllUsers, useLogUserIn } from '../../../../services/users.hooks';
-import { exampleWbs1 } from '../../../../test-support/test-data/wbs-numbers.stub';
+import { User } from 'shared';
+import { render, screen } from '../../../test-support/test-utils';
+import { wbsPipe } from '../../../pipes';
+import { useAllUsers, useLogUserIn } from '../../../services/users.hooks';
+import { exampleWbs1 } from '../../../test-support/test-data/wbs-numbers.stub';
 import ActivateWorkPackageModalContainer from './activate-work-package-modal-container';
 import {
   mockUseMutationResult,
   mockUseQueryResult
-} from '../../../../test-support/test-data/test-utils.stub';
-import { useCreateActivationChangeRequest } from '../../../../services/change-requests.hooks';
-import { exampleAllUsers } from '../../../../test-support/test-data/users.stub';
+} from '../../../test-support/test-data/test-utils.stub';
+import { useCreateActivationChangeRequest } from '../../../services/change-requests.hooks';
+import { exampleAllUsers } from '../../../test-support/test-data/users.stub';
 
-jest.mock('../../../../services/users.hooks');
+jest.mock('../../../services/users.hooks');
 
 const mockedUseAllUsers = useAllUsers as jest.Mock<UseQueryResult<User[]>>;
 
@@ -33,10 +33,12 @@ const mockUseLogUserInHook = (isLoading: boolean, isError: boolean, error?: Erro
   );
 };
 
-jest.mock('../../../../services/change-requests.hooks');
+jest.mock('../../../services/change-requests.hooks');
 
 // random shit to make test happy by mocking out this hook
-const mockedUseCreateActivationCR = useCreateActivationChangeRequest as jest.Mock<UseMutationResult>;
+const mockedUseCreateActivationCR = useCreateActivationChangeRequest as jest.Mock<
+  UseMutationResult
+>;
 
 const mockUseCreateActivationCRHook = (isLoading: boolean, isError: boolean, error?: Error) => {
   mockedUseCreateActivationCR.mockReturnValue(

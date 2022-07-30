@@ -10,7 +10,7 @@ import themes from '../../themes';
 import { Theme } from '../../types';
 import BulletList from './bullet-list';
 
-jest.mock('../../../services/theme.hooks');
+jest.mock('../../services/theme.hooks');
 const mockTheme = useTheme as jest.Mock<Theme>;
 
 const mockHook = () => {

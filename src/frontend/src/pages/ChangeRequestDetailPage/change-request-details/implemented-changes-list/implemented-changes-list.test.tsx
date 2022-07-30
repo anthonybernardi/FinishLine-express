@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import { render, screen, routerWrapperBuilder } from '../../../../test-support/test-utils';
+import { render, screen, routerWrapperBuilder } from '../../../test-support/test-utils';
 import { ImplementedChange } from 'shared';
-import { exampleStandardImplementedChangeRequest } from '../../../../test-support/test-data/change-requests.stub';
+import { exampleStandardImplementedChangeRequest } from '../../../test-support/test-data/change-requests.stub';
 import ImplementedChangesList from './implemented-changes-list';
 
 /**

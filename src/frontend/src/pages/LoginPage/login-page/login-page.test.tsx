@@ -3,8 +3,8 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import themes from '../../../../shared/themes';
-import { render, screen } from '../../../../test-support/test-utils';
+import themes from '../../../themes';
+import { render, screen } from '../../../test-support/test-utils';
 import LoginPage from './login-page';
 
 /**

@@ -3,9 +3,9 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { Project, User, WbsElementStatus } from 'utils';
+import { Project, User, WbsElementStatus } from 'shared';
 import { Col, Container, Row, Form, InputGroup } from 'react-bootstrap';
-import { fullNamePipe, emDashPipe } from '../../../../../shared/pipes';
+import { fullNamePipe, emDashPipe } from '../../../../pipes';
 import PageBlock from '../../../../layouts/page-block/page-block';
 
 // new parts added at the bottom

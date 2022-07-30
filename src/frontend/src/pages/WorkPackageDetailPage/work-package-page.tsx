@@ -4,9 +4,9 @@
  */
 
 import { useState } from 'react';
-import { WbsNumber } from 'utils';
-import { useSingleWorkPackage } from '../../../services/work-packages.hooks';
-import { useAuth } from '../../../services/auth.hooks';
+import { WbsNumber } from 'shared';
+import { useSingleWorkPackage } from '../../services/work-packages.hooks';
+import { useAuth } from '../../services/auth.hooks';
 import LoadingIndicator from '../../components/loading-indicator/loading-indicator';
 import ErrorPage from '../../pages/ErrorPage/error-page';
 import WorkPackageEditContainer from './work-package-edit-container/work-package-edit-container';

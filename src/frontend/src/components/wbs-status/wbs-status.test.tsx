@@ -3,8 +3,8 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { WbsElementStatus } from 'utils';
-import { render, screen } from '../../../test-support/test-utils';
+import { WbsElementStatus } from 'shared';
+import { render, screen } from '../../test-support/test-utils';
 import WbsStatus from './wbs-status';
 
 const TEST_CLASS = 'badge badge-pill badge-';

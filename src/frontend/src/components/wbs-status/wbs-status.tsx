@@ -4,7 +4,7 @@
  */
 
 import { Badge } from 'react-bootstrap';
-import { WbsElementStatus } from 'utils';
+import { WbsElementStatus } from 'shared';
 
 interface WbsStatusProps {
   status: WbsElementStatus;

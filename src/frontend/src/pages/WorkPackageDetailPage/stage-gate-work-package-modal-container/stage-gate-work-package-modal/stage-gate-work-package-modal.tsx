@@ -7,9 +7,9 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Form, InputGroup, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { WbsNumber } from 'utils';
+import { WbsNumber } from 'shared';
 import { FormInput } from '../stage-gate-work-package-modal-container';
-import { wbsPipe } from '../../../../../shared/pipes';
+import { wbsPipe } from '../../../../pipes';
 
 interface StageGateWorkPackageModalProps {
   wbsNum: WbsNumber;

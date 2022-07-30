@@ -4,8 +4,8 @@
  */
 
 import { useHistory } from 'react-router-dom';
-import { render, screen, routerWrapperBuilder } from '../../../test-support/test-utils';
-import { routes } from '../../../shared/routes';
+import { render, screen, routerWrapperBuilder } from '../../test-support/test-utils';
+import { routes } from '../../routes';
 import Login from './login';
 
 let pushed: string[] = [];

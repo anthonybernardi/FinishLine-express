@@ -3,31 +3,31 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import { UseQueryResult } from 'react-query';
-import { ChangeRequest, ChangeRequestType, ChangeRequestReason } from 'utils';
+import { ChangeRequest, ChangeRequestType, ChangeRequestReason } from 'shared';
 import {
   exampleAllChangeRequests,
   exampleActivationChangeRequest,
   exampleStageGateChangeRequest,
   exampleStandardChangeRequest
-} from '../../../test-support/test-data/change-requests.stub';
-import { mockUseQueryResult } from '../../../test-support/test-data/test-utils.stub';
-import { useAllChangeRequests } from '../../../services/change-requests.hooks';
-import { routerWrapperBuilder } from '../../../test-support/test-utils';
-import { fullNamePipe, wbsPipe } from '../../../shared/pipes';
+} from '../../test-support/test-data/change-requests.stub';
+import { mockUseQueryResult } from '../../test-support/test-data/test-utils.stub';
+import { useAllChangeRequests } from '../../services/change-requests.hooks';
+import { routerWrapperBuilder } from '../../test-support/test-utils';
 import ChangeRequestsTable, { filterCRs } from './change-requests-table';
-import { useTheme } from '../../../services/theme.hooks';
-import { Theme } from '../../../shared/types';
-import themes from '../../../shared/themes';
+import { useTheme } from '../../services/theme.hooks';
+import { Theme } from '../../types';
+import themes from '../../themes';
 
-jest.mock('../../../services/change-requests.hooks');
+jest.mock('../../services/change-requests.hooks');
 
 const mockedUseAllChangeRequests = useAllChangeRequests as jest.Mock<
   UseQueryResult<ChangeRequest[]>
 >;
 
-jest.mock('../../../services/theme.hooks');
+jest.mock('../../services/theme.hooks');
 const mockTheme = useTheme as jest.Mock<Theme>;
 
 const mockHook = (isLoading: boolean, isError: boolean, data?: ChangeRequest[], error?: Error) => {
@@ -83,20 +83,6 @@ describe('change requests table container', () => {
     renderComponent();
 
     expect(screen.getByText(NoCRMessage)).toBeInTheDocument();
-  });
-
-  it('handles the api returning a normal array of change requests', async () => {
-    mockHook(false, false, exampleAllChangeRequests);
-    renderComponent();
-    await waitFor(() => screen.getByText(exampleAllChangeRequests[0].crId));
-
-    expect(
-      screen.getAllByText(fullNamePipe(exampleAllChangeRequests[1].submitter))[0]
-    ).toBeInTheDocument();
-    expect(screen.getByText(exampleAllChangeRequests[1].crId)).toBeInTheDocument();
-    expect(screen.getAllByText(wbsPipe(exampleAllChangeRequests[2].wbsNum))[0]).toBeInTheDocument();
-
-    expect(screen.queryByText(NoCRMessage)).not.toBeInTheDocument();
   });
 
   it('checking if change request filtering with no filters works as expected', async () => {

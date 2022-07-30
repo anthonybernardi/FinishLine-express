@@ -8,6 +8,7 @@ import {
   ChangeRequest,
   ChangeRequestReason,
   ChangeRequestType,
+  Role,
   StageGateChangeRequest,
   StandardChangeRequest
 } from 'shared';
@@ -140,7 +141,7 @@ export const exampleStandardImplementedChangeRequest: StandardChangeRequest = {
         googleAuthId: 'testID',
         email: 'j.schmoe@northeastern.edu',
         emailId: null,
-        role: 'LEADERSHIP'
+        role: Role.LEADERSHIP
       },
       detail: 'Adjust description',
       dateImplemented: new Date('02/25/21')
@@ -160,7 +161,7 @@ export const exampleStandardImplementedChangeRequest: StandardChangeRequest = {
         googleAuthId: 'testID',
         email: 'j.schmoe@northeastern.edu',
         emailId: null,
-        role: 'LEADERSHIP'
+        role: Role.LEADERSHIP
       },
       detail: 'Increase budget to 200',
       dateImplemented: new Date('02/25/21')
@@ -180,7 +181,7 @@ export const exampleStandardImplementedChangeRequest: StandardChangeRequest = {
         googleAuthId: 'testID',
         email: 'j.schmoe@northeastern.edu',
         emailId: null,
-        role: 'LEADERSHIP'
+        role: Role.LEADERSHIP
       },
       detail: 'Add 3 weeks',
       dateImplemented: new Date('02/25/21')

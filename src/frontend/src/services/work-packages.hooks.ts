@@ -4,7 +4,7 @@
  */
 
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { WorkPackage, WbsNumber, CreateWorkPackagePayload, EditWorkPackagePayload } from 'shared';
+import { WorkPackage, WbsNumber } from 'shared';
 import {
   createSingleWorkPackage,
   editWorkPackage,
@@ -40,9 +40,9 @@ export const useSingleWorkPackage = (wbsNum: WbsNumber) => {
  * @param wpPayload Payload containing all information needed to create a work package.
  */
 export const useCreateSingleWorkPackage = () => {
-  return useMutation<{ message: string }, Error, CreateWorkPackagePayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['work packages', 'create'],
-    async (wpPayload: CreateWorkPackagePayload) => {
+    async (wpPayload: any) => {
       const { data } = await createSingleWorkPackage(wpPayload);
       return data;
     }
@@ -56,9 +56,9 @@ export const useCreateSingleWorkPackage = () => {
  */
 export const useEditWorkPackage = (wbsNum: WbsNumber) => {
   const queryClient = useQueryClient();
-  return useMutation<{ message: string }, Error, EditWorkPackagePayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['work packages', 'edit'],
-    async (wpPayload: EditWorkPackagePayload) => {
+    async (wpPayload: any) => {
       const { data } = await editWorkPackage(wpPayload);
       return data;
     },

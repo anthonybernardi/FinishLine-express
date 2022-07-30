@@ -7,10 +7,10 @@ export * from './src/types/change-request-types';
 export * from './src/types/project-types';
 export * from './src/types/user-types';
 export * from './src/types/work-package-types';
-export * from './src/types/api-utils-types';
 export * from './src/types/risk-types';
 export * from './src/types/team-types';
 
 export * from './src/validate-wbs';
-export * from './src/api-utils';
 export * from './src/api-routes';
+
+export * from './src/backend-supports/project-supports';

@@ -4,13 +4,7 @@
  */
 
 import { useMutation, useQuery } from 'react-query';
-import {
-  ChangeRequest,
-  ReviewChangeRequestPayload,
-  CreateStandardChangeRequestPayload,
-  CreateActivationChangeRequestPayload,
-  CreateStageGateChangeRequestPayload
-} from 'shared';
+import { ChangeRequest } from 'shared';
 import {
   createActivationChangeRequest,
   createStandardChangeRequest,
@@ -46,9 +40,9 @@ export const useSingleChangeRequest = (id: number) => {
  * Custom React Hook to review a change request.
  */
 export const useReviewChangeRequest = () => {
-  return useMutation<{ message: string }, Error, ReviewChangeRequestPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['change requests', 'review'],
-    async (reviewPayload: ReviewChangeRequestPayload) => {
+    async (reviewPayload: any) => {
       const { data } = await reviewChangeRequest(
         reviewPayload.reviewerId,
         reviewPayload.crId,
@@ -64,9 +58,9 @@ export const useReviewChangeRequest = () => {
  * Custom React Hook to create a standard change request.
  */
 export const useCreateStandardChangeRequest = () => {
-  return useMutation<{ message: string }, Error, CreateStandardChangeRequestPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['change requests', 'create', 'standard'],
-    async (payload: CreateStandardChangeRequestPayload) => {
+    async (payload: any) => {
       const { data } = await createStandardChangeRequest(payload);
       return data;
     }
@@ -77,9 +71,9 @@ export const useCreateStandardChangeRequest = () => {
  * Custom React Hook to create an activation change request.
  */
 export const useCreateActivationChangeRequest = () => {
-  return useMutation<{ message: string }, Error, CreateActivationChangeRequestPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['change requests', 'create', 'activation'],
-    async (payload: CreateActivationChangeRequestPayload) => {
+    async (payload: any) => {
       const { data } = await createActivationChangeRequest(
         payload.submitterId,
         payload.wbsNum,
@@ -97,9 +91,9 @@ export const useCreateActivationChangeRequest = () => {
  * Custom React Hook to create a stage gate change request.
  */
 export const useCreateStageGateChangeRequest = () => {
-  return useMutation<{ message: string }, Error, CreateStageGateChangeRequestPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['change requests', 'create', 'stage gate'],
-    async (payload: CreateStageGateChangeRequestPayload) => {
+    async (payload: any) => {
       const { data } = await createStageGateChangeRequest(
         payload.submitterId,
         payload.wbsNum,

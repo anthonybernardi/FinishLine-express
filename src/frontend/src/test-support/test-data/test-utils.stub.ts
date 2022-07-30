@@ -5,11 +5,17 @@
 
 import { AxiosResponse } from 'axios';
 import { UseMutationResult, UseQueryResult } from 'react-query';
-import { ApiRoute, API_URL, User } from 'shared';
+import { API_URL, User } from 'shared';
 import { exampleAdminUser } from './users.stub';
 import { Auth, LinkItem } from '../../types';
 import { faExchangeAlt, faFolder, faHome } from '@fortawesome/free-solid-svg-icons';
 import { routes } from '../../routes';
+
+export type ApiRoute = {
+  path: string;
+  httpMethod: string;
+  func: () => { statusCode: number; body: string };
+};
 
 export const exampleApiRoutes: ApiRoute[] = [
   {

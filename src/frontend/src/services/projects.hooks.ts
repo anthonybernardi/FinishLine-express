@@ -4,7 +4,7 @@
  */
 
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { EditProjectPayload, CreateProjectPayload, Project, WbsNumber } from 'shared';
+import { Project, WbsNumber } from 'shared';
 import {
   editSingleProject,
   createSingleProject,
@@ -39,9 +39,9 @@ export const useSingleProject = (wbsNum: WbsNumber) => {
  *
  */
 export const useCreateSingleProject = () => {
-  return useMutation<{ message: string }, Error, CreateProjectPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['projects', 'create'],
-    async (projectPayload: CreateProjectPayload) => {
+    async (projectPayload: any) => {
       const { data } = await createSingleProject(projectPayload);
       return data;
     }
@@ -53,9 +53,9 @@ export const useCreateSingleProject = () => {
  */
 export const useEditSingleProject = (wbsNum: WbsNumber) => {
   const queryClient = useQueryClient();
-  return useMutation<{ message: string }, Error, EditProjectPayload>(
+  return useMutation<{ message: string }, Error, any>(
     ['projects', 'edit'],
-    async (projectPayload: EditProjectPayload) => {
+    async (projectPayload: any) => {
       const { data } = await editSingleProject(projectPayload);
       return data;
     },

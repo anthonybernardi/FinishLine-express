@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios';
-import { EditProjectPayload, CreateProjectPayload, Project, WbsNumber } from 'shared';
+import { Project, WbsNumber } from 'shared';
 import { wbsPipe } from '../pipes';
 import { apiUrls } from '../urls';
 import { projectTransformer } from './transformers/projects.transformers';
@@ -34,7 +34,7 @@ export const getSingleProject = (wbsNum: WbsNumber) => {
  *
  * @param payload Payload containing all information needed to create a project.
  */
-export const createSingleProject = (payload: CreateProjectPayload) => {
+export const createSingleProject = (payload: any) => {
   return axios.post<{ message: string }>(apiUrls.projectsCreate(), {
     ...payload
   });
@@ -45,7 +45,7 @@ export const createSingleProject = (payload: CreateProjectPayload) => {
  *
  * @param payload Payload containing all information needed to edit a project.
  */
-export const editSingleProject = (payload: EditProjectPayload) => {
+export const editSingleProject = (payload: any) => {
   return axios.post<{ message: string }>(apiUrls.projectsEdit(), {
     ...payload
   });

@@ -19,19 +19,20 @@ const AppPublic: React.FC = () => {
   document.body.style.backgroundColor = theme.bgColor;
 
   return (
-    <html className={theme.className}>
+    <div className={theme.className}>
       <Routes>
-        <Route path={routes.LOGIN}>
-          <Login postLoginRedirect={{ url: location.pathname, search: location.search }} />
-        </Route>
         <Route
-          path="*"
-          element={() =>
-            auth.user === undefined ? <Navigate to={routes.LOGIN} /> : <AppAuthenticated />
+          path={routes.LOGIN}
+          element={
+            <Login postLoginRedirect={{ url: location.pathname, search: location.search }} />
           }
         />
+        <Route
+          path="*"
+          element={auth.user === undefined ? <Navigate to={routes.LOGIN} /> : <AppAuthenticated />}
+        />
       </Routes>
-    </html>
+    </div>
   );
 };
 

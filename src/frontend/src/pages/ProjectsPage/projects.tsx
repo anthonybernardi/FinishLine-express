@@ -13,10 +13,10 @@ import CreateWPForm from '../CreateWorkPackagePage/create-wp-form';
 const Projects: React.FC = () => {
   return (
     <Routes>
-      <Route path={routes.WORK_PACKAGE_NEW} element={CreateWPForm} />
-      <Route path={routes.PROJECTS_NEW} element={CreateProjectForm} />
-      <Route path={routes.PROJECTS_BY_WBS} element={WBSDetails} />
-      <Route path={routes.PROJECTS} element={ProjectsView} />
+      <Route path={routes.WORK_PACKAGE_NEW} element={<CreateWPForm />} />
+      <Route path={routes.PROJECTS_NEW} element={<CreateProjectForm />} />
+      <Route path={routes.PROJECTS_BY_WBS} element={<WBSDetails />} />
+      <Route path={routes.PROJECTS} element={<ProjectsView />} />
     </Routes>
   );
 };

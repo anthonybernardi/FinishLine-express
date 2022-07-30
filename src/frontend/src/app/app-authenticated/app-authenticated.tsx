@@ -30,16 +30,16 @@ const AppAuthenticated: React.FC = () => {
         <Sidebar />
         <div style={styles.content}>
           <Routes>
-            <Route path={routes.PROJECTS} element={Projects} />
+            <Route path={`${routes.PROJECTS}/*`} element={<Projects />} />
             <Route
               path={routes.CR_BY_ID}
-              element={() => <Navigate to={routes.CHANGE_REQUESTS_BY_ID} />}
+              element={<Navigate to={routes.CHANGE_REQUESTS_BY_ID} />}
             />
-            <Route path={routes.CHANGE_REQUESTS} element={ChangeRequests} />
-            <Route path={routes.TEAMS} element={TeamsPage} />
-            <Route path={routes.SETTINGS} element={Settings} />
-            <Route path={routes.HELP} element={HelpPage} />
-            <Route path={routes.HOME} element={Home} />
+            <Route path={routes.CHANGE_REQUESTS} element={<ChangeRequests />} />
+            <Route path={routes.TEAMS} element={<TeamsPage />} />
+            <Route path={routes.SETTINGS} element={<Settings />} />
+            <Route path={routes.HELP} element={<HelpPage />} />
+            <Route path={routes.HOME} element={<Home />} />
             <Route path="*" element={PageNotFound} />
           </Routes>
         </div>

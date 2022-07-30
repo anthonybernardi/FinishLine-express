@@ -5,9 +5,9 @@
 
 import { Container } from 'react-bootstrap';
 import { useAuth } from '../../services/auth.hooks';
-import UsefulLinks from './useful-links/useful-links';
-import WorkPackagesByTimelineStatus from './work-packages-by-timeline-status/work-packages-by-timeline-status';
-import UpcomingDeadlines from './upcoming-deadlines/upcoming-deadlines';
+// import UsefulLinks from './useful-links/useful-links';
+// import WorkPackagesByTimelineStatus from './work-packages-by-timeline-status/work-packages-by-timeline-status';
+// import UpcomingDeadlines from './upcoming-deadlines/upcoming-deadlines';
 import styles from './home.module.css';
 
 const Home: React.FC = () => {
@@ -15,9 +15,6 @@ const Home: React.FC = () => {
   return (
     <Container fluid>
       <h1 className={styles.title}>Welcome, {auth.user?.firstName}!</h1>
-      <UsefulLinks />
-      <UpcomingDeadlines />
-      <WorkPackagesByTimelineStatus />
     </Container>
   );
 };

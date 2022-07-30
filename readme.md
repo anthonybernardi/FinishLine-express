@@ -1,3 +1,6 @@
+# About
+This is a copy of the pm-dashboard-v2 but as a yarn monorepo with express on the backend. The goal is to make developers' lives easier with a better monorepo structure and a simpler and more understandable backend. Hopefully I can get this working soon lol
+
 ## Setup
 1. set up the database like in pm-dashboard-v2
 2. get the same .env file from pm-dashboard-v2 but put it in src/backend/

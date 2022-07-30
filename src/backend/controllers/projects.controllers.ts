@@ -1,10 +1,4 @@
-import {
-  Description_Bullet,
-  Prisma,
-  PrismaClient,
-  WBS_Element,
-  WBS_Element_Status
-} from '@prisma/client';
+import { Description_Bullet, Prisma, PrismaClient, WBS_Element } from '@prisma/client';
 import {
   WbsNumber,
   Project,
@@ -112,9 +106,9 @@ const projectTransformer = (
     wbsNum,
     dateCreated: wbsElement.dateCreated,
     name: wbsElement.name,
-    status: wbsElement.status,
-    projectLead: wbsElement.projectLead ?? undefined,
-    projectManager: wbsElement.projectManager ?? undefined,
+    status: WbsElementStatus.Active,
+    projectLead: undefined,
+    projectManager: undefined,
     changes: wbsElement.changes.map((change: any) => ({
       changeId: change.changeId,
       changeRequestId: change.changeRequestId,
@@ -175,6 +169,6 @@ const projectTransformer = (
 };
 
 export const getAllProjects = async (_req: any, res: any) => {
-  const projects = await prisma.projects.findMany();
+  const projects = await prisma.project.findMany(manyRelationArgs);
   res.status(200).json(projects.map(projectTransformer));
 };

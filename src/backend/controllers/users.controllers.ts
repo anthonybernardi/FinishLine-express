@@ -1,5 +1,5 @@
 import { Prisma, PrismaClient } from '@prisma/client';
-import { AuthenticatedUser, User } from 'shared';
+import { AuthenticatedUser, User, Role } from 'shared';
 import { OAuth2Client } from 'google-auth-library';
 
 const prisma = new PrismaClient();
@@ -9,6 +9,21 @@ const authUserQueryArgs = Prisma.validator<Prisma.UserArgs>()({
     userSettings: true
   }
 });
+
+const prismaRoleToEnum = (role: string): Role => {
+  switch (role) {
+    case 'APP_ADMIN':
+      return Role.APP_ADMIN;
+    case 'LEADERSHIP':
+      return Role.LEADERSHIP;
+    case 'GUEST':
+      return Role.GUEST;
+    case 'ADMIN':
+      return Role.ADMIN;
+    default:
+      return Role.MEMBER;
+  }
+};
 
 const authenticatedUserTransformer = (
   user: Prisma.UserGetPayload<typeof authUserQueryArgs>
@@ -20,7 +35,7 @@ const authenticatedUserTransformer = (
     googleAuthId: user.googleAuthId,
     email: user.email,
     emailId: user.emailId,
-    role: user.role,
+    role: prismaRoleToEnum(user.role),
     defaultTheme: user.userSettings?.defaultTheme
   };
 };
@@ -35,7 +50,7 @@ const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
     googleAuthId: user.googleAuthId ?? undefined,
     email: user.email ?? undefined,
     emailId: user.emailId,
-    role: user.role ?? undefined
+    role: prismaRoleToEnum(user.role) ?? undefined
   };
 };
 

@@ -10,7 +10,7 @@ import {
   ChangeRequestType,
   StageGateChangeRequest,
   StandardChangeRequest
-} from 'utils';
+} from 'shared';
 import {
   exampleAdminUser,
   exampleAppAdminUser,

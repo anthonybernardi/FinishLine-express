@@ -3,13 +3,14 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ActivationChangeRequest } from 'utils';
-import { useTheme } from '../../../../../../services/theme.hooks';
-import { datePipe } from '../../../../../../shared/pipes';
-import themes from '../../../../../../shared/themes';
-import { Theme } from '../../../../../../shared/types';
-import { exampleActivationChangeRequest } from '../../../../../../test-support/test-data/change-requests.stub';
+import { ActivationChangeRequest } from 'shared';
+import { useTheme } from '../../../../../services/theme.hooks';
+import { datePipe } from '../../../../../pipes';
+import themes from '../../../../../themes';
+import { Theme } from '../../../../../types';
+import { exampleActivationChangeRequest } from '../../../../../test-support/test-data/change-requests.stub';
 import ActivationDetails from './activation-details';
 
 jest.mock('../../../../../../services/theme.hooks');

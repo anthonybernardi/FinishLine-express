@@ -3,26 +3,27 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import {
   routerWrapperBuilder,
   fireEvent,
   render,
   screen,
   act
-} from '../../../../test-support/test-utils';
+} from '../../../test-support/test-utils';
 import {
   ActivationChangeRequest,
   ChangeRequest,
   StageGateChangeRequest,
   StandardChangeRequest
-} from 'utils';
-import { datePipe } from '../../../../shared/pipes';
+} from 'shared';
+import { datePipe } from '../../../pipes';
 import {
   exampleActivationChangeRequest,
   exampleAllChangeRequests,
   exampleStageGateChangeRequest,
   exampleStandardChangeRequest
-} from '../../../../test-support/test-data/change-requests.stub';
+} from '../../../test-support/test-data/change-requests.stub';
 import ChangeRequestDetails from './change-request-details';
 
 /**

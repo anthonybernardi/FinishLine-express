@@ -3,14 +3,13 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { HandlerCallback, HandlerEvent } from '@netlify/functions';
 import { AxiosResponse } from 'axios';
 import { UseMutationResult, UseQueryResult } from 'react-query';
-import { ApiRoute, API_URL, User } from 'utils';
+import { ApiRoute, API_URL, User } from 'shared';
 import { exampleAdminUser } from './users.stub';
-import { Auth, LinkItem } from '../../shared/types';
+import { Auth, LinkItem } from '../../types';
 import { faExchangeAlt, faFolder, faHome } from '@fortawesome/free-solid-svg-icons';
-import { routes } from '../../shared/routes';
+import { routes } from '../../routes';
 
 export const exampleApiRoutes: ApiRoute[] = [
   {
@@ -58,26 +57,9 @@ export const mockContext = {
   succeed: () => 0
 };
 
-export const mockCallback: HandlerCallback = (_error, _response) => {};
-
-export const mockEvent = (path: string, httpMethod: string, body?: any): HandlerEvent => {
-  return {
-    rawUrl: '',
-    rawQuery: '',
-    path,
-    httpMethod,
-    headers: {},
-    multiValueHeaders: {},
-    queryStringParameters: {},
-    multiValueQueryStringParameters: {},
-    body: body ? JSON.stringify(body) : null,
-    isBase64Encoded: false
-  };
-};
-
 export const mockPromiseAxiosResponse = <Return>(data: Return) => {
   return new Promise((res, rej) =>
-    res({ status: 0, statusText: '', headers: null, config: {}, data })
+    res({ status: 0, statusText: '', headers: {}, config: {}, data })
   ) as Promise<AxiosResponse<Return>>;
 };
 

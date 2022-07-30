@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { render, screen, routerWrapperBuilder } from '../../../../../test-support/test-utils';
-import { ImplementedChange } from 'utils';
-import { exampleStandardImplementedChangeRequest } from '../../../../../test-support/test-data/change-requests.stub';
+import React from 'react';
+import { render, screen, routerWrapperBuilder } from '../../../../test-support/test-utils';
+import { ImplementedChange } from 'shared';
+import { exampleStandardImplementedChangeRequest } from '../../../../test-support/test-data/change-requests.stub';
 import ImplementedChangesList from './implemented-changes-list';
 
 /**

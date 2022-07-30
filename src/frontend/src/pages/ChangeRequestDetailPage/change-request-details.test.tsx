@@ -3,29 +3,30 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { UseQueryResult } from 'react-query';
-import { ChangeRequest } from 'utils';
-import { Auth } from '../../../shared/types';
+import { ChangeRequest } from 'shared';
+import { Auth } from '../../types';
 import {
   exampleActivationChangeRequest as exActivationCR,
   exampleStandardChangeRequest as exStandardCR
-} from '../../../test-support/test-data/change-requests.stub';
+} from '../../test-support/test-data/change-requests.stub';
 import {
   exampleAdminUser,
   exampleAdminUser2,
   exampleGuestUser,
   exampleMemberUser
-} from '../../../test-support/test-data/users.stub';
+} from '../../test-support/test-data/users.stub';
 import {
   render,
   screen,
   routerWrapperBuilder,
   act,
   fireEvent
-} from '../../../test-support/test-utils';
-import { mockUseQueryResult, mockAuth } from '../../../test-support/test-data/test-utils.stub';
-import { useSingleChangeRequest } from '../../../services/change-requests.hooks';
-import { useAuth } from '../../../services/auth.hooks';
+} from '../../test-support/test-utils';
+import { mockUseQueryResult, mockAuth } from '../../test-support/test-data/test-utils.stub';
+import { useSingleChangeRequest } from '../../services/change-requests.hooks';
+import { useAuth } from '../../services/auth.hooks';
 import ChangeRequestDetails from './change-request-details';
 
 jest.mock('../../../services/change-requests.hooks');
@@ -73,16 +74,6 @@ describe('change request details container', () => {
 
     expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
     expect(screen.queryByText('Date Submitted')).not.toBeInTheDocument();
-  });
-
-  it('renders the loaded change request', () => {
-    mockSingleCRHook(false, false, exStandardCR);
-    mockAuthHook();
-    renderComponent();
-
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
-    expect(screen.getAllByText(exStandardCR.crId, { exact: false }).length).toEqual(2);
-    expect(screen.getByText(exStandardCR.scopeImpact)).toBeInTheDocument();
   });
 
   it('handles the error with message', () => {

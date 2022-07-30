@@ -3,15 +3,16 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { StageGateChangeRequest } from 'utils';
-import { useTheme } from '../../../../../../services/theme.hooks';
-import themes from '../../../../../../shared/themes';
-import { Theme } from '../../../../../../shared/types';
-import { exampleStageGateChangeRequest } from '../../../../../../test-support/test-data/change-requests.stub';
+import { StageGateChangeRequest } from 'shared';
+import { useTheme } from '../../../../../services/theme.hooks';
+import themes from '../../../../../themes';
+import { Theme } from '../../../../../types';
+import { exampleStageGateChangeRequest } from '../../../../../test-support/test-data/change-requests.stub';
 import StageGateDetails from './stage-gate-details';
 
-jest.mock('../../../../../../services/theme.hooks');
+jest.mock('../../../../../services/theme.hooks');
 const mockTheme = useTheme as jest.Mock<Theme>;
 
 const mockHook = () => {

@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { User } from 'utils';
+import { User } from 'shared';
 import { Role } from '@prisma/client';
 
 export const exampleAppAdminUser: User = {

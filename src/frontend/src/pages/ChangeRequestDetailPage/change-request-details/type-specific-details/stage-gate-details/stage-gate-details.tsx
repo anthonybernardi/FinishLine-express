@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { StageGateChangeRequest } from 'utils';
-import { booleanPipe, dollarsPipe } from '../../../../../../shared/pipes';
+import { StageGateChangeRequest } from 'shared';
+import { booleanPipe, dollarsPipe } from '../../../../../pipes';
 import PageBlock from '../../../../../layouts/page-block/page-block';
 
 interface StageGateDetailsProps {

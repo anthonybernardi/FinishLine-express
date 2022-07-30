@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { User } from 'utils';
-import { datePipe, emDashPipe, fullNamePipe } from '../../../../../shared/pipes';
+import { User } from 'shared';
+import { datePipe, emDashPipe, fullNamePipe } from '../../../../pipes';
 import PageBlock from '../../../../layouts/page-block/page-block';
 
 interface ReviewNotesProps {

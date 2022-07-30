@@ -3,11 +3,12 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { ImplementedChange } from 'utils';
-import { datePipe, emDashPipe, fullNamePipe, wbsPipe } from '../../../../../shared/pipes';
-import { routes } from '../../../../../shared/routes';
+import { ImplementedChange } from 'shared';
+import { datePipe, emDashPipe, fullNamePipe, wbsPipe } from '../../../../pipes';
+import { routes } from '../../../../routes';
 import BulletList from '../../../../components/bullet-list/bullet-list';
 
 interface ImplementedChangesListProps {

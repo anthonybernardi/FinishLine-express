@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../../../../services/auth.hooks';
-import { useReviewChangeRequest } from '../../../../services/change-requests.hooks';
+import { useAuth } from '../../../services/auth.hooks';
+import { useReviewChangeRequest } from '../../../services/change-requests.hooks';
 import ErrorPage from '../../../pages/ErrorPage/error-page';
 import LoadingIndicator from '../../../components/loading-indicator/loading-indicator';
 import ReviewChangeRequestsView from './review-change-request/review-change-request';
@@ -24,11 +25,8 @@ const ReviewChangeRequest: React.FC<ReviewChangeRequestProps> = ({
   modalShow,
   handleClose
 }: ReviewChangeRequestProps) => {
-  interface ParamTypes {
-    id: string;
-  }
-  const { id } = useParams<ParamTypes>();
-  const crId = parseInt(id);
+  const { id } = useParams();
+  const crId = parseInt(id!);
   const auth = useAuth();
   const { isLoading, isError, error, mutateAsync } = useReviewChangeRequest();
 

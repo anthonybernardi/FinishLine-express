@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { UserSettings } from 'utils';
+import { UserSettings } from 'shared';
 
 export const exampleUserSettingsLight: UserSettings = {
   id: 'abc123',

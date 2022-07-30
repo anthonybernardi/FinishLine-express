@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Button, Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {

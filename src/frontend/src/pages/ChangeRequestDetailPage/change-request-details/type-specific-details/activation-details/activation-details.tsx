@@ -3,9 +3,10 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ActivationChangeRequest } from 'utils';
-import { booleanPipe, datePipe, fullNamePipe } from '../../../../../../shared/pipes';
+import { ActivationChangeRequest } from 'shared';
+import { booleanPipe, datePipe, fullNamePipe } from '../../../../../pipes';
 import PageBlock from '../../../../../layouts/page-block/page-block';
 
 interface ActivationDetailsProps {

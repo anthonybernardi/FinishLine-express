@@ -17,10 +17,12 @@
     "prisma:reset": "cd src/backend; npx prisma migrate reset",
     "prisma:migrate": "cd src/backend; npx prisma migrate dev",
     "prisma:generate": "cd src/backend; npx prisma generate",
+    "prisma:manual": "cd src/backend; ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} src/backend/prisma/manual.ts",
+    "lint": "npx eslint .",
     "test:frontend": "cd src/frontend; yarn run test",
     "test:backend": "",
     "test": "yarn run test:frontend && yarn run test:backend",
-    "build:backend": "cd src/backend; yarn run build",
+    "build": "yarn workspace backend build && yarn workspace frontend build",
     "i": "yarn install && yarn prisma:generate"
   },
   "resolutions": {

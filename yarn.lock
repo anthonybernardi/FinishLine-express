@@ -4375,6 +4375,7 @@ __metadata:
     body-parser: ^1.19.0
     cookie-parser: ^1.4.5
     cors: ^2.8.5
+    dotenv: ^16.0.1
     express: ^4.17.1
     express-pino-logger: 5.0.0
     google-auth-library: ^8.1.1
@@ -6697,6 +6698,13 @@ __metadata:
   version: 8.2.0
   resolution: "dotenv@npm:8.2.0"
   checksum: ad4c8e0df3e24b4811c8e93377d048a10a9b213dcd9f062483b4a2d3168f08f10ec9c618c23f5639060d230ccdb174c08761479e9baa29610aa978e1ee66df76
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "dotenv@npm:16.0.1"
+  checksum: f459ffce07b977b7f15d8cc4ee69cdff77d4dd8c5dc8c85d2d485ee84655352c2415f9dd09d42b5b5985ced3be186130871b34e2f3e2569ebc72fbc2e8096792
   languageName: node
   linkType: hard
 

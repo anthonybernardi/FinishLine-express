@@ -2,15 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "start": "yarn nodemon index.ts",
+    "dev": "yarn nodemon index.ts",
     "test": "jest",
-    "build": "tsc --noEmit false"
+    "build": "tsc --noEmit false",
+    "start": "node -r dotenv/config dist/index.js"
   },
   "dependencies": {
     "@prisma/client": "^4.1.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "express-pino-logger": "5.0.0",
     "google-auth-library": "^8.1.1",

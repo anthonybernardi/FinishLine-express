@@ -10,6 +10,13 @@ This is a copy of the [pm-dashboard-v2](https://github.com/Northeastern-Electric
 6. yarn run prisma:reset
 7. yarn run start
 
+## Still Todo
+Here's what I still have todo to make this be a viable alternative:
+- make tests work on the frontend
+- fix some weird enum stuff on the backend
+- copy over the rest of the endpoints
+- figure out how deployment works
+
 ## Should We Use This?
 Maybe! Writing the backend on this is so easy that I never want to go back to netlify ngl. But also devops are already a weak point for us so that could be frustrating. I've written out some pros and cons below that we can think about. My personal conclusion is that this will do so much for lowering the learning curve and member retention that we might just have to suck it up and figure out the devops.
 
@@ -21,6 +28,7 @@ Maybe! Writing the backend on this is so easy that I never want to go back to ne
 - the yarn monorepo is like what we do with utils but it works way better
 - frontend can stay the same mostly
 - can use nodemon which redeploys locally on save
+- we can point at the exact same database from before
 
 ### Cons
 - deploying might be a mess

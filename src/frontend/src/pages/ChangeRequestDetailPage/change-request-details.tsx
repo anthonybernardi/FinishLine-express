@@ -11,7 +11,10 @@ import LoadingIndicator from '../../components/loading-indicator/loading-indicat
 import ErrorPage from '../../pages/ErrorPage/error-page';
 
 const ChangeRequestDetails: React.FC = () => {
-  const { id } = useParams();
+  interface ParamTypes {
+    id: string;
+  }
+  const { id } = useParams<ParamTypes>();
   const { isLoading, isError, data, error } = useSingleChangeRequest(parseInt(id!));
   const auth = useAuth();
 

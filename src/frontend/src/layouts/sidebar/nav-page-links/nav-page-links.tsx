@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LinkItem } from '../../../types';
 import styles from './nav-page-links.module.css';
+import { routes } from '../../../routes';
 
 interface NavPageLinkProps {
   linkItems: LinkItem[];
@@ -19,7 +20,9 @@ const NavPageLinks: React.FC<NavPageLinkProps> = ({ linkItems }: NavPageLinkProp
         <NavLink
           key={item.name}
           to={item.route}
-          className={(navData) => (navData.isActive ? styles.row : styles.activeLink)}
+          className={styles.row}
+          activeClassName={styles.activeLink}
+          exact={item.route === routes.HOME}
         >
           {item.icon ? (
             <FontAwesomeIcon

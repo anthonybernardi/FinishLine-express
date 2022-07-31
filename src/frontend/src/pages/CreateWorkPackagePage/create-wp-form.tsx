@@ -4,7 +4,7 @@
  */
 
 import { Dispatch, SetStateAction, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { isProject, validateWBS, WbsNumber } from 'shared';
 import { useAuth } from '../../services/auth.hooks';
 import { useCreateSingleWorkPackage } from '../../services/work-packages.hooks';
@@ -27,7 +27,7 @@ export interface FormStates {
 }
 
 const CreateWPForm: React.FC = () => {
-  const history = useNavigate();
+  const history = useHistory();
   const auth = useAuth();
 
   const [name, setName] = useState('');
@@ -141,7 +141,7 @@ const CreateWPForm: React.FC = () => {
         expectedActivities,
         deliverables
       });
-      history(routes.CHANGE_REQUESTS);
+      history.push(routes.CHANGE_REQUESTS);
     } catch (e) {
       console.log(e);
       alert('something went wrong');
@@ -173,7 +173,7 @@ const CreateWPForm: React.FC = () => {
       deliverables={deliverables}
       delUtils={delUtils}
       onSubmit={handleSubmit}
-      onCancel={() => history(-1)}
+      onCancel={() => history.goBack()}
       allowSubmit={auth.user?.role !== 'GUEST'}
     />
   );

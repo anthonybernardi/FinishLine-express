@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import BootstrapTable, {
   ColumnDescription,
   RowEventHandlerProps,
@@ -27,7 +27,7 @@ interface ChangeRequestsTableProps {
 const ChangeRequestsTable: React.FC<ChangeRequestsTableProps> = ({
   changeRequests
 }: ChangeRequestsTableProps) => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   // Configures display options for all data columns
   const columns: ColumnDescription[] = [
@@ -99,7 +99,7 @@ const ChangeRequestsTable: React.FC<ChangeRequestsTableProps> = ({
   // define what happens during various row events
   const rowEvents: RowEventHandlerProps = {
     onClick: (e, row, rowIndex) => {
-      navigate(`${routes.CHANGE_REQUESTS}/${row.id}`);
+      history.push(`${routes.CHANGE_REQUESTS}/${row.id}`);
     }
   };
 

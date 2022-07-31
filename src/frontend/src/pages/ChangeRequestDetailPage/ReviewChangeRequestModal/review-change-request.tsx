@@ -24,7 +24,10 @@ const ReviewChangeRequest: React.FC<ReviewChangeRequestProps> = ({
   modalShow,
   handleClose
 }: ReviewChangeRequestProps) => {
-  const { id } = useParams();
+  interface ParamTypes {
+    id: string;
+  }
+  const { id } = useParams<ParamTypes>();
   const crId = parseInt(id!);
   const auth = useAuth();
   const { isLoading, isError, error, mutateAsync } = useReviewChangeRequest();

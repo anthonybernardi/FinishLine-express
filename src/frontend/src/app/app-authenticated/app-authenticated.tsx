@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { routes } from '../../routes';
 import ChangeRequests from '../../pages/ChangeRequestsPage/change-requests';
 import Projects from '../../pages/ProjectsPage/projects';
@@ -29,19 +29,16 @@ const AppAuthenticated: React.FC = () => {
       <div>
         <Sidebar />
         <div style={styles.content}>
-          <Routes>
-            <Route path={`${routes.PROJECTS}/*`} element={<Projects />} />
-            <Route
-              path={routes.CR_BY_ID}
-              element={<Navigate to={routes.CHANGE_REQUESTS_BY_ID} />}
-            />
-            <Route path={routes.CHANGE_REQUESTS} element={<ChangeRequests />} />
-            <Route path={routes.TEAMS} element={<TeamsPage />} />
-            <Route path={routes.SETTINGS} element={<Settings />} />
-            <Route path={routes.HELP} element={<HelpPage />} />
-            <Route path={routes.HOME} element={<Home />} />
-            <Route path="*" element={PageNotFound} />
-          </Routes>
+          <Switch>
+            <Route path={routes.PROJECTS} component={Projects} />
+            <Redirect from={routes.CR_BY_ID} to={routes.CHANGE_REQUESTS_BY_ID} />
+            <Route path={routes.CHANGE_REQUESTS} component={ChangeRequests} />
+            <Route path={routes.TEAMS} component={TeamsPage} />
+            <Route path={routes.SETTINGS} component={Settings} />
+            <Route path={routes.HELP} component={HelpPage} />
+            <Route exact path={routes.HOME} component={Home} />
+            <Route path="*" component={PageNotFound} />
+          </Switch>
         </div>
       </div>
     </>

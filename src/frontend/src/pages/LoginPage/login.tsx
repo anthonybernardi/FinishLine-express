@@ -4,7 +4,7 @@
  */
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 import { Role } from 'shared';
 import { exampleAllUsers } from '../../test-support/test-data/users.stub';
 import { useTheme } from '../../services/theme.hooks';
@@ -22,7 +22,7 @@ interface LoginProps {
  */
 const Login: React.FC<LoginProps> = ({ postLoginRedirect }) => {
   const [devUserRole, setDevUserRole] = useState<string>(Role.APP_ADMIN);
-  const history = useNavigate();
+  const history = useHistory();
   const theme = useTheme();
   const auth = useAuth();
 
@@ -30,9 +30,9 @@ const Login: React.FC<LoginProps> = ({ postLoginRedirect }) => {
 
   const redirectAfterLogin = () => {
     if (postLoginRedirect.url === routes.LOGIN) {
-      history(routes.HOME);
+      history.push(routes.HOME);
     } else {
-      history(`${postLoginRedirect.url}${postLoginRedirect.search}`);
+      history.push(`${postLoginRedirect.url}${postLoginRedirect.search}`);
     }
   };
 

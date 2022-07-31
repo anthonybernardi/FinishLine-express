@@ -10,7 +10,10 @@ import ErrorPage from '../../pages/ErrorPage/error-page';
 import ProjectPage from '../ProjectDetailPage/project-page';
 
 const WBSDetails: React.FC = () => {
-  const { wbsNum } = useParams();
+  interface ParamTypes {
+    wbsNum: string;
+  }
+  const { wbsNum } = useParams<ParamTypes>();
   let wbsNumber;
   try {
     wbsNumber = validateWBS(wbsNum!); // ensure the provided wbsNum is correctly formatted

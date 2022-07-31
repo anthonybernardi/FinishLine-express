@@ -4,7 +4,7 @@
  */
 
 import { NavDropdown } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ import { routes } from '../../../routes';
 import styles from './nav-user-menu.module.css';
 
 const NavUserMenu: React.FC = () => {
-  const history = useNavigate();
+  const history = useHistory();
   const auth = useAuth();
 
   return (
@@ -36,7 +36,7 @@ const NavUserMenu: React.FC = () => {
           //jsSrc={'accounts.google.com/gsi/client'}
           onLogoutSuccess={() => {
             auth!.signout();
-            history(routes.HOME);
+            history.push(routes.HOME);
           }}
           render={(renderProps) => (
             <button

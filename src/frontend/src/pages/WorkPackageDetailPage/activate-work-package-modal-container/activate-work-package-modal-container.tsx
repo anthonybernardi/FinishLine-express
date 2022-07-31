@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { ChangeRequestType, WbsNumber } from 'shared';
 import { useAuth } from '../../../services/auth.hooks';
 import { useCreateActivationChangeRequest } from '../../../services/change-requests.hooks';
@@ -33,7 +33,7 @@ const ActivateWorkPackageModalContainer: React.FC<ActivateWorkPackageModalContai
 }) => {
   const auth = useAuth();
   const users = useAllUsers();
-  const history = useNavigate();
+  const history = useHistory();
   const { isLoading, isError, error, mutateAsync } = useCreateActivationChangeRequest();
 
   const handleConfirm = async ({
@@ -54,7 +54,7 @@ const ActivateWorkPackageModalContainer: React.FC<ActivateWorkPackageModalContai
       startDate,
       confirmDetails
     });
-    history(routes.CHANGE_REQUESTS);
+    history.push(routes.CHANGE_REQUESTS);
   };
 
   if (isLoading || users.isLoading) return <LoadingIndicator />;

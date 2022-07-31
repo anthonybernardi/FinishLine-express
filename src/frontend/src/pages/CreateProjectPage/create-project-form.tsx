@@ -4,7 +4,7 @@
  */
 
 import { Dispatch, SetStateAction, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../services/auth.hooks';
 import { useCreateSingleProject } from '../../services/projects.hooks';
 import { routes } from '../../routes';
@@ -20,7 +20,7 @@ export interface CreateProjectFormStates {
 
 const CreateProjectForm: React.FC = () => {
   const auth = useAuth();
-  const history = useNavigate();
+  const history = useHistory();
   const [name, setName] = useState('');
   const [carNumber, setCarNumber] = useState(-1);
   const [crId, setCrId] = useState(-1);
@@ -36,9 +36,9 @@ const CreateProjectForm: React.FC = () => {
     summary: setSummary
   };
 
-  const handleCancel = () => history(-1);
+  const handleCancel = () => history.goBack();
 
-  const redirectToCrTable = () => history(routes.CHANGE_REQUESTS);
+  const redirectToCrTable = () => history.push(routes.CHANGE_REQUESTS);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

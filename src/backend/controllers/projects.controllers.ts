@@ -100,16 +100,17 @@ const projectTransformer = (
       teamName: project.team.teamName
     };
   }
+  const { projectLead, projectManager } = wbsElement;
 
   return {
     id: project.projectId,
     wbsNum,
     dateCreated: wbsElement.dateCreated,
     name: wbsElement.name,
-    status: WbsElementStatus.Active,
-    projectLead: undefined,
-    projectManager: undefined,
-    changes: wbsElement.changes.map((change: any) => ({
+    status: wbsElement.status as WbsElementStatus,
+    projectLead: projectLead ?? undefined,
+    projectManager: projectManager ?? undefined,
+    changes: wbsElement.changes.map((change) => ({
       changeId: change.changeId,
       changeRequestId: change.changeRequestId,
       wbsNum,
@@ -125,11 +126,11 @@ const projectTransformer = (
     slideDeckLink: project.slideDeckLink ?? undefined,
     bomLink: project.bomLink ?? undefined,
     rules: project.rules,
-    duration: project.workPackages.reduce((prev: any, curr: any) => prev + curr.duration, 0),
+    duration: project.workPackages.reduce((prev, curr) => prev + curr.duration, 0),
     goals: project.goals.map(descBulletConverter),
     features: project.features.map(descBulletConverter),
     otherConstraints: project.otherConstraints.map(descBulletConverter),
-    workPackages: project.workPackages.map((workPackage: any) => {
+    workPackages: project.workPackages.map((workPackage) => {
       const endDate = calculateEndDate(workPackage.startDate, workPackage.duration);
       const expectedProgress = calculatePercentExpectedProgress(
         workPackage.startDate,
@@ -142,10 +143,10 @@ const projectTransformer = (
         wbsNum: wbsNumOf(workPackage.wbsElement),
         dateCreated: workPackage.wbsElement.dateCreated,
         name: workPackage.wbsElement.name,
-        status: workPackage.wbsElement.status,
+        status: workPackage.wbsElement.status as WbsElementStatus,
         projectLead: workPackage.wbsElement.projectLead ?? undefined,
         projectManager: workPackage.wbsElement.projectManager ?? undefined,
-        changes: workPackage.wbsElement.changes.map((change: any) => ({
+        changes: workPackage.wbsElement.changes.map((change) => ({
           changeId: change.changeId,
           changeRequestId: change.changeRequestId,
           wbsNum: wbsNumOf(workPackage.wbsElement),

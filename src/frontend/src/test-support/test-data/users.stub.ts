@@ -3,7 +3,7 @@
  * See the LICENSE file in the repository root folder for details.
  */
 
-import { User, Role } from 'shared';
+import { User, RoleEnum } from 'shared';
 
 export const exampleAppAdminUser: User = {
   userId: 1,
@@ -12,7 +12,7 @@ export const exampleAppAdminUser: User = {
   googleAuthId: '1',
   email: 'emrax.t@husky.neu.edu',
   emailId: 'emrax.t',
-  role: Role.APP_ADMIN
+  role: RoleEnum.APP_ADMIN
 };
 
 export const exampleAdminUser: User = {
@@ -22,7 +22,7 @@ export const exampleAdminUser: User = {
   googleAuthId: '2',
   email: 'shmoe.j@husky.neu.edu',
   emailId: 'shmoe.j',
-  role: Role.ADMIN
+  role: RoleEnum.ADMIN
 };
 
 export const exampleAdminUser2: User = {
@@ -32,7 +32,7 @@ export const exampleAdminUser2: User = {
   googleAuthId: '2',
   email: 'shmoe.j@husky.neu.edu',
   emailId: 'shmoe.j',
-  role: Role.ADMIN
+  role: RoleEnum.ADMIN
 };
 
 export const exampleLeadershipUser: User = {
@@ -42,7 +42,7 @@ export const exampleLeadershipUser: User = {
   googleAuthId: '3',
   email: 'blow.j@husky.neu.edu',
   emailId: 'blow.j',
-  role: Role.LEADERSHIP
+  role: RoleEnum.LEADERSHIP
 };
 
 export const exampleProjectLeadUser: User = {
@@ -52,7 +52,7 @@ export const exampleProjectLeadUser: User = {
   googleAuthId: '4',
   email: 'smith.a@husky.neu.edu',
   emailId: 'smith.a',
-  role: Role.LEADERSHIP
+  role: RoleEnum.LEADERSHIP
 };
 
 export const exampleProjectManagerUser: User = {
@@ -62,7 +62,7 @@ export const exampleProjectManagerUser: User = {
   googleAuthId: '5',
   email: 'barmatha.r@husky.neu.edu',
   emailId: 'barmatha.r',
-  role: Role.MEMBER
+  role: RoleEnum.MEMBER
 };
 
 export const exampleMemberUser: User = {
@@ -72,7 +72,7 @@ export const exampleMemberUser: User = {
   googleAuthId: '6',
   email: 'bendara.e@husky.neu.edu',
   emailId: 'bendara.e',
-  role: Role.MEMBER
+  role: RoleEnum.MEMBER
 };
 
 export const exampleGuestUser: User = {
@@ -82,7 +82,7 @@ export const exampleGuestUser: User = {
   googleAuthId: '7',
   email: 'james.j@husky.neu.edu',
   emailId: 'james.j',
-  role: Role.GUEST
+  role: RoleEnum.GUEST
 };
 
 export const exampleAllUsers: User[] = [

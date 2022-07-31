@@ -1,5 +1,5 @@
 import { Prisma, PrismaClient } from '@prisma/client';
-import { AuthenticatedUser, User, Role } from 'shared';
+import { AuthenticatedUser, User } from 'shared';
 import { OAuth2Client } from 'google-auth-library';
 
 const prisma = new PrismaClient();
@@ -9,21 +9,6 @@ const authUserQueryArgs = Prisma.validator<Prisma.UserArgs>()({
     userSettings: true
   }
 });
-
-const prismaRoleToEnum = (role: string): Role => {
-  switch (role) {
-    case 'APP_ADMIN':
-      return Role.APP_ADMIN;
-    case 'LEADERSHIP':
-      return Role.LEADERSHIP;
-    case 'GUEST':
-      return Role.GUEST;
-    case 'ADMIN':
-      return Role.ADMIN;
-    default:
-      return Role.MEMBER;
-  }
-};
 
 const authenticatedUserTransformer = (
   user: Prisma.UserGetPayload<typeof authUserQueryArgs>
@@ -35,12 +20,12 @@ const authenticatedUserTransformer = (
     googleAuthId: user.googleAuthId,
     email: user.email,
     emailId: user.emailId,
-    role: prismaRoleToEnum(user.role),
+    role: user.role,
     defaultTheme: user.userSettings?.defaultTheme
   };
 };
 
-const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
+export const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
   if (user === null) throw new TypeError('User not found');
 
   return {
@@ -50,7 +35,7 @@ const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
     googleAuthId: user.googleAuthId ?? undefined,
     email: user.email ?? undefined,
     emailId: user.emailId,
-    role: prismaRoleToEnum(user.role) ?? undefined
+    role: user.role ?? undefined
   };
 };
 
@@ -90,8 +75,7 @@ export const getUserSettings = async (req: any, res: any) => {
 export const updateUserSettings = async (req: any, res: any) => {
   const userId: number = parseInt(req.params.userId);
   if (!req.body || !req.body.defaultTheme) {
-    res.status(404).json({ message: 'No settings found to update.' });
-    return;
+    return res.status(404).json({ message: 'No settings found to update.' });
   }
 
   await prisma.user_Settings.upsert({

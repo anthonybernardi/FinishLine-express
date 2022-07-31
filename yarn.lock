@@ -1432,7 +1432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-react@npm:^7.12.5, @babel/preset-react@npm:^7.16.0":
+"@babel/preset-react@npm:^7.12.5, @babel/preset-react@npm:^7.16.0, @babel/preset-react@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/preset-react@npm:7.18.6"
   dependencies:
@@ -14375,6 +14375,7 @@ __metadata:
   resolution: "react-cra-express-typescript-monorepo@workspace:."
   dependencies:
     "@babel/plugin-transform-object-assign": ^7.18.6
+    "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@testing-library/jest-dom": ^5.16.4
     "@types/jest": ^28.1.6

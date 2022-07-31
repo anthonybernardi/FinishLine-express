@@ -8,9 +8,9 @@ import { datePipe, fullNamePipe } from '../../../../pipes';
 import {
   exampleAllChangeRequests,
   exampleStandardChangeRequest
-} from '../../../test-support/test-data/change-requests.stub';
-import { exampleAppAdminUser } from '../../../test-support/test-data/users.stub';
-import { render, screen, fireEvent } from '../../../test-support/test-utils';
+} from '../../../../test-support/test-data/change-requests.stub';
+import { exampleAppAdminUser } from '../../../../test-support/test-data/users.stub';
+import { render, screen, fireEvent } from '../../../../test-support/test-utils';
 import ReviewNotes from './review-notes';
 
 /**

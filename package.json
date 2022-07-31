@@ -17,6 +17,7 @@
     "prisma:reset": "cd src/backend; npx prisma migrate reset",
     "prisma:migrate": "cd src/backend; npx prisma migrate dev",
     "prisma:generate": "cd src/backend; npx prisma generate",
+    "test:frontend": "cd src/frontend; yarn run test",
     "i": "yarn install && yarn prisma:generate"
   },
   "resolutions": {

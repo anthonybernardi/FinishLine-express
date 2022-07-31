@@ -72,14 +72,4 @@ describe('home component', () => {
     renderComponent();
     expect(screen.getByText('useful-links')).toBeInTheDocument();
   });
-
-  it('renders upcoming deadlines', () => {
-    renderComponent();
-    expect(screen.getByText('upcoming-deadlines')).toBeInTheDocument();
-  });
-
-  it('renders work packages by timeline status', () => {
-    renderComponent();
-    expect(screen.getByText('work-packages-by-timeline-status')).toBeInTheDocument();
-  });
 });

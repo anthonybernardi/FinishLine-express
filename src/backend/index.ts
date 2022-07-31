@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import userRouter from './routes/users.routes';
-import projectRouter from './routes/projects.routes';
+import userRouter from './src/routes/users.routes';
+import projectRouter from './src/routes/projects.routes';
 
 const app = express();
 const port = process.env.PORT || 3001;

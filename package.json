@@ -18,6 +18,9 @@
     "prisma:migrate": "cd src/backend; npx prisma migrate dev",
     "prisma:generate": "cd src/backend; npx prisma generate",
     "test:frontend": "cd src/frontend; yarn run test",
+    "test:backend": "",
+    "test": "yarn run test:frontend && yarn run test:backend",
+    "build:backend": "cd src/backend; yarn run build",
     "i": "yarn install && yarn prisma:generate"
   },
   "resolutions": {

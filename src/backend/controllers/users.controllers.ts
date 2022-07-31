@@ -1,43 +1,12 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-import { AuthenticatedUser, User } from 'shared';
+import { PrismaClient } from '@prisma/client';
 import { OAuth2Client } from 'google-auth-library';
+import {
+  authenticatedUserTransformer,
+  authUserQueryArgs,
+  usersTransformer
+} from '../utils/users.utils';
 
 const prisma = new PrismaClient();
-
-const authUserQueryArgs = Prisma.validator<Prisma.UserArgs>()({
-  include: {
-    userSettings: true
-  }
-});
-
-const authenticatedUserTransformer = (
-  user: Prisma.UserGetPayload<typeof authUserQueryArgs>
-): AuthenticatedUser => {
-  return {
-    userId: user.userId,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    googleAuthId: user.googleAuthId,
-    email: user.email,
-    emailId: user.emailId,
-    role: user.role,
-    defaultTheme: user.userSettings?.defaultTheme
-  };
-};
-
-export const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
-  if (user === null) throw new TypeError('User not found');
-
-  return {
-    userId: user.userId ?? undefined,
-    firstName: user.firstName ?? undefined,
-    lastName: user.lastName ?? undefined,
-    googleAuthId: user.googleAuthId ?? undefined,
-    email: user.email ?? undefined,
-    emailId: user.emailId,
-    role: user.role ?? undefined
-  };
-};
 
 export const getAllUsers = async (_req: any, res: any) => {
   const users = await prisma.user.findMany();

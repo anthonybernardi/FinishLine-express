@@ -7,7 +7,7 @@
  * This file centralizes URLs used to query the API.
  */
 
-const API_URL: string = `http://localhost:3001`;
+const API_URL: string = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
 /**************** Users Endpoint ****************/
 const users = () => `${API_URL}/users`;

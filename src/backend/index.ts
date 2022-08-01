@@ -21,7 +21,7 @@ app.use('/users', userRouter);
 app.use('/projects', projectRouter);
 
 app.use('/', (_req, res) => {
-  res.json('yo');
+  res.json('ligma');
 });
 
 app.listen(port, () => {

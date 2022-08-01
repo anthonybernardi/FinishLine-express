@@ -34,13 +34,13 @@ const calculatePercentExpectedProgress = (start: Date, weeks: number, status: St
     return 0;
   } else if (status === WbsElementStatus.Complete) {
     return 100;
-  } else {
-    const currentDate = new Date();
-    const elapsedTime = currentDate.getTime() - start.getTime();
-    const elapsedDays = elapsedTime / (1000 * 60 * 60 * 24);
-    const percentProgress = (elapsedDays * 100) / (weeks * 7);
-    return Math.min(Math.round(percentProgress), 100);
   }
+
+  const currentDate = new Date();
+  const elapsedTime = currentDate.getTime() - start.getTime();
+  const elapsedDays = elapsedTime / (1000 * 60 * 60 * 24);
+  const percentProgress = (elapsedDays * 100) / (weeks * 7);
+  return Math.min(Math.round(percentProgress), 100);
 };
 
 /**
@@ -58,9 +58,8 @@ const calculateTimelineStatus = (progress: number, expectedProgress: number): Ti
     return TimelineStatus.OnTrack;
   } else if (delta >= -25) {
     return TimelineStatus.Behind;
-  } else {
-    return TimelineStatus.VeryBehind;
   }
+  return TimelineStatus.VeryBehind;
 };
 
 export {

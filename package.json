@@ -12,7 +12,7 @@
     "prettier-all": "prettier --write \"**/*{ts,js,css,html,jsx,tsx}\"",
     "frontend": "yarn workspace frontend start",
     "backend": "yarn workspace backend start",
-    "start": "concurrently --kill-others-on-fail \"yarn backend\"  \"yarn frontend\"",
+    "start": "concurrently --kill-others-on-fail \"yarn workspace backend dev\"  \"yarn frontend\"",
     "prisma:seed": "cd src/backend; npx prisma db seed",
     "prisma:reset": "cd src/backend; npx prisma migrate reset",
     "prisma:migrate": "cd src/backend; npx prisma migrate dev",
@@ -22,7 +22,10 @@
     "test:frontend": "cd src/frontend; yarn run test",
     "test:backend": "",
     "test": "yarn run test:frontend && yarn run test:backend",
-    "build": "yarn workspace backend build && yarn workspace frontend build",
+    "build": "yarn run build:backend && yarn run build:shared && yarn run build:frontend",
+    "build:backend": "yarn workspace backend build",
+    "build:shared": "yarn workspace shared build",
+    "build:frontend": "yarn workspace frontend build",
     "i": "yarn install && yarn prisma:generate"
   },
   "resolutions": {

@@ -20,6 +20,10 @@ app.use(express.json());
 app.use('/users', userRouter);
 app.use('/projects', projectRouter);
 
+app.use('/', (_req, res) => {
+  res.json('yo');
+});
+
 app.listen(port, () => {
   console.log(`FinishLine listening at http://localhost:${port}`);
 });

@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../prisma/prisma';
 import { isProject, validateWBS, WbsNumber } from 'shared';
 import { manyRelationArgs, projectTransformer, uniqueRelationArgs } from '../utils/projects.utils';
-
-const prisma = new PrismaClient();
 
 export const getAllProjects = async (_req: any, res: any) => {
   const projects = await prisma.project.findMany(manyRelationArgs);

@@ -19,14 +19,15 @@
     "prisma:generate": "cd src/backend; npx prisma generate",
     "prisma:manual": "cd src/backend; ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} src/backend/prisma/manual.ts",
     "lint": "npx eslint .",
-    "test:frontend": "cd src/frontend; yarn run test",
-    "test:backend": "",
-    "test": "yarn run test:frontend && yarn run test:backend",
+    "test:frontend": "yarn workspace frontend test",
+    "test:backend": "yarn workspace backend test",
+    "test": "yarn test:backend && yarn test:frontend",
     "build": "yarn run build:backend && yarn run build:shared && yarn run build:frontend",
     "build:backend": "yarn workspace backend build",
     "build:shared": "yarn workspace shared build",
     "build:frontend": "yarn workspace frontend build",
-    "i": "yarn install && yarn prisma:generate"
+    "i": "yarn install && yarn prisma:generate",
+    "reset": "rm yarn.lock; rm -rf ./node_modules; rm -rf src/frontend/node_modules; rm -rf src/backend/node_modules; rm -rf src/shared/node_modules;"
   },
   "resolutions": {
     "@types/react": "17.0.1",
@@ -45,6 +46,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.0.5",
+    "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1"
   },
   "eslintConfig": {
@@ -106,6 +108,16 @@
       "node_modules",
       "public",
       "lib"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!variables/.*)"
     ]
   },
   "author": "",

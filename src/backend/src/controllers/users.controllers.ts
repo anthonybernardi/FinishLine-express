@@ -1,12 +1,10 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../prisma/prisma';
 import { OAuth2Client } from 'google-auth-library';
 import {
   authenticatedUserTransformer,
   authUserQueryArgs,
   usersTransformer
 } from '../utils/users.utils';
-
-const prisma = new PrismaClient();
 
 export const getAllUsers = async (_req: any, res: any) => {
   const users = await prisma.user.findMany();

@@ -27,7 +27,8 @@
     "build:shared": "yarn workspace shared build",
     "build:frontend": "yarn workspace frontend build",
     "i": "yarn install && yarn prisma:generate",
-    "reset": "rm yarn.lock; rm -rf ./node_modules; rm -rf src/frontend/node_modules; rm -rf src/backend/node_modules; rm -rf src/shared/node_modules;"
+    "reset": "rm yarn.lock; rm -rf ./node_modules; rm -rf src/frontend/node_modules; rm -rf src/backend/node_modules; rm -rf src/shared/node_modules;",
+    "install:hard": "yarn reset; yarn install; yarn prisma:generate"
   },
   "resolutions": {
     "@types/react": "17.0.1",
@@ -46,7 +47,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.0.5",
-    "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1"
   },
   "eslintConfig": {

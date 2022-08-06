@@ -15,12 +15,29 @@ const mockGetChangeRequestReviewState = getChangeRequestReviewState as jest.Mock
 >;
 const mockGetHighestProjectNumber = getHighestProjectNumber as jest.Mock<Promise<number>>;
 
-const project = {
+const newProjectPayload = {
   userId: 1,
   crId: 2,
   name: 'build a car',
   carNumber: 3,
   summary: 'we are building a car'
+};
+
+const editProjectPayload = {
+  ...newProjectPayload,
+  budget: 100,
+  projectId: 4,
+  rules: ['a', 'b', 'c'],
+  goals: [{ id: 1, detail: 'd' }],
+  features: [{ id: 1, detail: 'e' }],
+  otherConstraints: [{ id: 1, detail: 'f' }],
+  wbsElementStatus: 'ACTIVE',
+  googleDriveFolderLink: 'a',
+  slideDeckLink: 'g',
+  bomLink: 'h',
+  taskListLink: 'i',
+  projectLead: 5,
+  projectManager: 6
 };
 
 const batman = {
@@ -42,7 +59,7 @@ describe('Projects', () => {
   });
 
   test('newProject fails with invalid userId', async () => {
-    const proj = { ...project, userId: -1 };
+    const proj = { ...newProjectPayload, userId: -1 };
     const res = await request(app).post('/new').send(proj);
 
     expect(res.statusCode).toBe(400);
@@ -50,7 +67,7 @@ describe('Projects', () => {
   });
 
   test('newProject fails with invalid crId', async () => {
-    const proj = { ...project, crId: 'asdf' };
+    const proj = { ...newProjectPayload, crId: 'asdf' };
     const res = await request(app).post('/new').send(proj);
 
     expect(res.statusCode).toBe(400);
@@ -58,7 +75,7 @@ describe('Projects', () => {
   });
 
   test('newProject fails with invalid name', async () => {
-    const proj = { ...project, name: '' };
+    const proj = { ...newProjectPayload, name: '' };
     const res = await request(app).post('/new').send(proj);
 
     expect(res.statusCode).toBe(400);
@@ -81,11 +98,21 @@ describe('Projects', () => {
       projectManagerId: 5
     });
 
-    const res = await request(app).post('/new').send(project);
+    const res = await request(app).post('/new').send(newProjectPayload);
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toStrictEqual({
       wbsNumber: { carNumber: 1, projectNumber: 2, workPackageNumber: 3 }
     });
+  });
+
+  test('editProject fails with bad status', async () => {
+    const proj = { ...editProjectPayload, wbsElementStatus: 'alksdjflaksdfj' };
+    const res = await request(app).post('/edit').send(proj);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.errors).toStrictEqual([
+      { location: 'body', msg: 'Invalid value', param: 'wbsElementStatus', value: 'alksdjflaksdfj' }
+    ]);
   });
 });

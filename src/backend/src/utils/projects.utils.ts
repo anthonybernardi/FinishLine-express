@@ -1,4 +1,5 @@
 import { Description_Bullet, Prisma, WBS_Element } from '@prisma/client';
+import prisma from '../prisma/prisma';
 import {
   WbsNumber,
   Project,
@@ -165,4 +166,23 @@ export const projectTransformer = (
       };
     })
   };
+};
+
+// gets the associated change request for creating a project
+export const getChangeRequestReviewState = async (crId: number) => {
+  const cr = await prisma.change_Request.findUnique({ where: { crId } });
+
+  // returns null if the change request doesn't exist
+  // if it exists, return a boolean describing if the change request was reviewed
+  return cr ? cr.dateReviewed !== null : cr;
+};
+
+// gets highest current project number
+export const getHighestProjectNumber = async (carNumber: number) => {
+  const maxProjectNumber = await prisma.wBS_Element.aggregate({
+    where: { carNumber },
+    _max: { projectNumber: true }
+  });
+
+  return maxProjectNumber._max.projectNumber ?? 0;
 };

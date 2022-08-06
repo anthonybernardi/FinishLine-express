@@ -15,7 +15,7 @@ const mockGetChangeRequestReviewState = getChangeRequestReviewState as jest.Mock
 >;
 const mockGetHighestProjectNumber = getHighestProjectNumber as jest.Mock<Promise<number>>;
 
-let project = {
+const project = {
   userId: 1,
   crId: 2,
   name: 'build a car',

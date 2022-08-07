@@ -11,6 +11,5 @@ export * from './src/types/risk-types';
 export * from './src/types/team-types';
 
 export * from './src/validate-wbs';
-export * from './src/api-routes';
 
 export * from './src/backend-supports/project-supports';

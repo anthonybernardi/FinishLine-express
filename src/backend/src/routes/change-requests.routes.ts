@@ -24,7 +24,7 @@ changeRequestsRouter.post(
 );
 changeRequestsRouter.post(
   '/new/activation',
-  body('submitterid').isInt({ min: 0 }),
+  body('submitterId').isInt({ min: 0 }),
   body('wbsNum.carNumber').isInt({ min: 0 }),
   body('wbsNum.projectNumber').isInt({ min: 0 }),
   body('wbsNum.workPackageNumber').isInt({ min: 0 }),
@@ -37,7 +37,7 @@ changeRequestsRouter.post(
 );
 changeRequestsRouter.post(
   '/new/stage-gate',
-  body('submitterid').isInt({ min: 0 }),
+  body('submitterId').isInt({ min: 0 }),
   body('wbsNum.carNumber').isInt({ min: 0 }),
   body('wbsNum.projectNumber').isInt({ min: 0 }),
   body('wbsNum.workPackageNumber').isInt({ min: 0 }),
@@ -48,11 +48,16 @@ changeRequestsRouter.post(
 );
 changeRequestsRouter.post(
   '/new/standard',
-  body('submitterid').isInt({ min: 0 }),
+  body('submitterId').isInt({ min: 0 }),
   body('wbsNum.carNumber').isInt({ min: 0 }),
   body('wbsNum.projectNumber').isInt({ min: 0 }),
   body('wbsNum.workPackageNumber').isInt({ min: 0 }),
-  body('type').custom((value) => value === ChangeRequestType.StageGate),
+  body('type').custom(
+    (value) =>
+      value === ChangeRequestType.Other ||
+      value === ChangeRequestType.Issue ||
+      value === ChangeRequestType.Redefinition
+  ),
   body('scopeImpact').not().isEmpty(),
   body('budgetImpact').isInt({ min: 0 }),
   body('timelineImpact').isInt({ min: 0 }),

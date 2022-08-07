@@ -16,10 +16,12 @@ const projectDurationBuilder = (wps: any) => {
   if (wps.length === 0) return 0;
   if (wps.length === 1) return wps[0].duration;
 
+  // eslint-disable-next-line prefer-destructuring
   let firstStart = wps[0].startDate;
   let lastEnd = calculateEndDate(firstStart, wps[0].duration);
 
   for (const wp of wps) {
+    // eslint-disable-next-line prefer-destructuring
     if (wp.startDate < firstStart) firstStart = wp.startDate;
     const end = calculateEndDate(wp.startDate, wp.duration);
     if (end > lastEnd) lastEnd = end;

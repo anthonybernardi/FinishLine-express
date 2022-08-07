@@ -107,7 +107,8 @@
       "lambda",
       "node_modules",
       "public",
-      "lib"
+      "lib",
+      "dist"
     ]
   },
   "jest": {

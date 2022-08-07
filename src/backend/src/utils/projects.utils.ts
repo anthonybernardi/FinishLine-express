@@ -361,7 +361,7 @@ export const createDescriptionBulletChangesJson = (
 
 // Given a user's id, this method returns the user's full name
 export const getUserFullName = async (userId: number | null): Promise<string | null> => {
-  if (userId === null) return null;
+  if (!userId) return null;
   const user = await prisma.user.findUnique({ where: { userId } });
   if (!user) throw new Error('user not found');
   return `${user.firstName} ${user.lastName}`;

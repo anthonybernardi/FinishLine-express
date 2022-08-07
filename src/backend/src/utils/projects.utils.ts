@@ -1,7 +1,6 @@
-import { Description_Bullet, Prisma, WBS_Element } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import prisma from '../prisma/prisma';
 import {
-  WbsNumber,
   Project,
   WbsElementStatus,
   DescriptionBullet,
@@ -9,6 +8,7 @@ import {
   calculatePercentExpectedProgress,
   calculateTimelineStatus
 } from 'shared';
+import { descBulletConverter, wbsNumOf } from './utils';
 
 export const manyRelationArgs = Prisma.validator<Prisma.ProjectArgs>()({
   include: {
@@ -68,19 +68,6 @@ export const uniqueRelationArgs = Prisma.validator<Prisma.WBS_ElementArgs>()({
     projectManager: true,
     changes: { include: { implementer: true } }
   }
-});
-
-export const wbsNumOf = (element: WBS_Element): WbsNumber => ({
-  carNumber: element.carNumber,
-  projectNumber: element.projectNumber,
-  workPackageNumber: element.workPackageNumber
-});
-
-export const descBulletConverter = (descBullet: Description_Bullet): DescriptionBullet => ({
-  id: descBullet.descriptionId,
-  detail: descBullet.detail,
-  dateAdded: descBullet.dateAdded,
-  dateDeleted: descBullet.dateDeleted ?? undefined
 });
 
 export const projectTransformer = (

@@ -18,8 +18,8 @@ const userSettingsByUserId = (id: string) => `${usersById(id)}/settings`;
 /**************** Projects Endpoint ****************/
 const projects = () => `${API_URL}/projects`;
 const projectsByWbsNum = (wbsNum: string) => `${projects()}/${wbsNum}`;
-const projectsCreate = () => `${projects()}-new`;
-const projectsEdit = () => `${projects()}-edit`;
+const projectsCreate = () => `${projects()}/new`;
+const projectsEdit = () => `${projects()}/edit`;
 
 /**************** Work Packages Endpoint ****************/
 const workPackages = (queryParams?: { [field: string]: string }) => {
@@ -30,17 +30,17 @@ const workPackages = (queryParams?: { [field: string]: string }) => {
     .join('&')}`;
 };
 const workPackagesByWbsNum = (wbsNum: string) => `${workPackages()}/${wbsNum}`;
-const workPackagesCreate = () => `${workPackages()}-create`;
-const workPackagesEdit = () => `${workPackages()}-edit`;
+const workPackagesCreate = () => `${workPackages()}/create`;
+const workPackagesEdit = () => `${workPackages()}/edit`;
 
 /**************** Change Requests Endpoint ****************/
 const changeRequests = () => `${API_URL}/change-requests`;
 const changeRequestsById = (id: string) => `${changeRequests()}/${id}`;
-const changeRequestsReview = () => `${changeRequests()}-review`;
-const changeRequestsCreate = () => `${changeRequests()}-new`;
-const changeRequestsCreateActivation = () => `${changeRequestsCreate()}-activation`;
-const changeRequestsCreateStageGate = () => `${changeRequestsCreate()}-stage-gate`;
-const changeRequestsCreateStandard = () => `${changeRequestsCreate()}-standard`;
+const changeRequestsReview = () => `${changeRequests()}/review`;
+const changeRequestsCreate = () => `${changeRequests()}/new`;
+const changeRequestsCreateActivation = () => `${changeRequestsCreate()}/activation`;
+const changeRequestsCreateStageGate = () => `${changeRequestsCreate()}/stage-gate`;
+const changeRequestsCreateStandard = () => `${changeRequestsCreate()}/standard`;
 
 export const apiUrls = {
   users,

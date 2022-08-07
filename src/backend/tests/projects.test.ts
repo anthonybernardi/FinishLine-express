@@ -115,4 +115,28 @@ describe('Projects', () => {
       { location: 'body', msg: 'Invalid value', param: 'wbsElementStatus', value: 'alksdjflaksdfj' }
     ]);
   });
+
+  test('editProject fails with feature with no detail', async () => {
+    const proj = { ...editProjectPayload, features: [{ id: 4 }] };
+    const res = await request(app).post('/edit').send(proj);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.errors.length).toBe(1);
+  });
+
+  test('editProject fails with feature with invalid id', async () => {
+    const proj = { ...editProjectPayload, features: [{ id: -1, detail: 'alsdjf' }] };
+    const res = await request(app).post('/edit').send(proj);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.errors.length).toBe(1);
+  });
+
+  test('editProject fails with feature with invalid detail', async () => {
+    const proj = { ...editProjectPayload, features: [{ id: 4, detail: '' }] };
+    const res = await request(app).post('/edit').send(proj);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.errors.length).toBe(1);
+  });
 });

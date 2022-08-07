@@ -22,7 +22,7 @@ export const authenticatedUserTransformer = (
   };
 };
 
-export const usersTransformer = (user: Prisma.UserGetPayload<null>): User => {
+export const userTransformer = (user: Prisma.UserGetPayload<null>): User => {
   if (user === null) throw new TypeError('User not found');
 
   return {

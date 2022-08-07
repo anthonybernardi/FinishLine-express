@@ -3,13 +3,13 @@ import { OAuth2Client } from 'google-auth-library';
 import {
   authenticatedUserTransformer,
   authUserQueryArgs,
-  usersTransformer
+  userTransformer
 } from '../utils/users.utils';
 
 export const getAllUsers = async (_req: any, res: any) => {
   const users = await prisma.user.findMany();
   users.sort((a, b) => a.firstName.localeCompare(b.firstName));
-  res.status(200).json(users.map(usersTransformer));
+  res.status(200).json(users.map(userTransformer));
 };
 
 export const getSingleUser = async (req: any, res: any) => {
@@ -17,7 +17,7 @@ export const getSingleUser = async (req: any, res: any) => {
   const requestedUser = await prisma.user.findUnique({ where: { userId } });
   if (!requestedUser) return res.status(404).json({ message: `user #${userId} not found!` });
 
-  res.status(200).json(usersTransformer(requestedUser));
+  res.status(200).json(userTransformer(requestedUser));
 };
 
 export const getUserSettings = async (req: any, res: any) => {
